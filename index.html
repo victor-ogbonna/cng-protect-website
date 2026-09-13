@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>CNG-Protect — Edge-AI &amp; Decentralized Safety for CNG Fleets</title>
+    <meta
+      name="description"
+      content="CNG-Protect is a DePIN hardware fail-safe that autonomously prevents gas explosions and streams edge-signed safety telemetry to the Lisk blockchain for immutable fleet insurance audits."
+    />
+    <meta name="theme-color" content="#060B18" />
+    <meta property="og:title" content="CNG-Protect — De-Risking the CNG Transition" />
+    <meta
+      property="og:description"
+      content="Edge-AI hardware fail-safe + edge-signed telemetry on Lisk. Built for African transit fleets and their underwriters."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Static mirror of the React pilot form so Netlify registers it at build
+         time. Hidden from users; the live form is rendered by PilotCTA.jsx. -->
+    <form name="pilot-access" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="pilot-access" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="email" type="email" />
+      <input name="organisation" />
+      <input name="role" />
+      <input name="fleet_size" />
+      <textarea name="message"></textarea>
+    </form>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

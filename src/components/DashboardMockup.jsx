@@ -84,7 +84,7 @@ export default function DashboardMockup() {
           <span className="size-2.5 rounded-full bg-navy-500" />
           <span className="size-2.5 rounded-full bg-navy-500" />
         </div>
-        <p className="font-mono text-[11px] text-slate-500">
+        <p className="min-w-0 truncate font-mono text-[11px] text-slate-500">
           app.cngprotect.io<span className="text-slate-600">/fleet/ogbontor-transit</span>
         </p>
         <span className="ml-auto inline-flex items-center gap-1.5 font-mono text-[10px] text-green-safe">
@@ -95,7 +95,7 @@ export default function DashboardMockup() {
 
       <div className="grid gap-px bg-navy-600/60 sm:grid-cols-[1fr_1.35fr]">
         {/* ---- fleet list ---- */}
-        <div className="bg-navy-900 p-4">
+        <div className="min-w-0 bg-navy-900 p-4">
           <p className="font-mono text-[10px] tracking-[0.16em] text-slate-500 uppercase">
             Fleet · 4 nodes
           </p>
@@ -155,7 +155,7 @@ export default function DashboardMockup() {
         </div>
 
         {/* ---- telemetry detail ---- */}
-        <div className="bg-navy-900 p-4">
+        <div className="min-w-0 bg-navy-900 p-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <p className="font-mono text-[11px] text-slate-500">{active.id}</p>

@@ -93,7 +93,7 @@ export default function Web3() {
 
         {/* live mockup */}
         <div className="mt-16 grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-center">
-          <div>
+          <div className="min-w-0">
             <DashboardMockup />
             <p className="mt-3 text-center font-mono text-[10.5px] tracking-wide text-slate-500">
               FLEET CONSOLE · SAMPLE DATA · SELECT A VEHICLE

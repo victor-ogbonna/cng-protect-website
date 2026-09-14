@@ -1,30 +1,46 @@
 @import "tailwindcss";
 
-@theme {
-  /* ---- Brand palette: deep navy / safety orange / electric cyan ---- */
-  --color-navy-950: #050912;
-  --color-navy-900: #070D1C;
-  --color-navy-850: #091124;
-  --color-navy-800: #0B1327;
-  --color-navy-700: #101B33;
-  --color-navy-600: #17243F;
-  --color-navy-500: #1F3055;
+/* Dark mode is opt-in: the page is light unless data-theme="dark" is set on
+   <html>, so the OS preference never overrides the default light look. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-  --color-safety-300: #FFB27A;
-  --color-safety-500: #FF6B1A;
-  --color-safety-600: #E85A0C;
+/* Semantic tokens resolve through CSS variables, so one set of utilities
+   (bg-panel, text-ink, border-line …) serves both themes. */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-canvas-2: var(--canvas-2);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
 
-  --color-cyan-flow: #22D3EE;
-  --color-green-safe: #34D399;
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
 
-  --color-slate-text: #94A3B8;
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-tint: var(--brand-tint);
+  --color-on-brand: var(--on-brand);
+
+  --color-data: var(--data);
+  --color-data-tint: var(--data-tint);
+  --color-danger: var(--danger);
+  --color-danger-tint: var(--danger-tint);
+  --color-warn: var(--warn);
+  --color-warn-tint: var(--warn-tint);
+
+  --color-dgm-fill: var(--dgm-fill);
+  --color-dgm-line: var(--dgm-line);
+  --color-dgm-line-2: var(--dgm-line-2);
+  --color-dgm-fill-2: var(--dgm-fill-2);
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   --animate-flow: flow 3s linear infinite;
   --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-marquee: marquee 40s linear infinite;
 
   @keyframes flow {
     to { stroke-dashoffset: -200; }
@@ -33,42 +49,114 @@
     0%, 100% { opacity: 0.35; transform: scale(1); }
     50% { opacity: 0.9; transform: scale(1.06); }
   }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
+}
+
+/* ---------------- light (default) ---------------- */
+:root {
+  color-scheme: light;
+
+  --canvas: #ffffff;
+  --canvas-2: #f4f8f5;
+  --panel: #ffffff;
+  --panel-2: #f7faf8;
+  --line: #e2ebe5;
+  --line-strong: #c7d7cd;
+
+  --ink: #0a1711;
+  --body: #3d4f47;
+  --muted: #64786e;
+  --faint: #8a9c93;
+
+  --brand: #0e8a4f;
+  --brand-strong: #0a6b3d;
+  --brand-tint: #e8f5ee;
+  --on-brand: #ffffff;
+
+  --data: #0f766e;
+  --data-tint: #e6f4f2;
+  --danger: #c0392b;
+  --danger-tint: #fceeeb;
+  --warn: #a95a06;
+  --warn-tint: #fdf1e3;
+
+  --dgm-fill: #f2f6f4;
+  --dgm-fill-2: #dde7e1;
+  --dgm-line: #93a99e;
+  --dgm-line-2: #c4d4ca;
+
+  --grid-line: rgba(10, 23, 17, 0.055);
+  --shadow-card: 0 1px 2px rgba(10, 23, 17, 0.04), 0 8px 24px -12px rgba(10, 23, 17, 0.10);
+  --shadow-lift: 0 2px 4px rgba(10, 23, 17, 0.05), 0 18px 40px -18px rgba(10, 23, 17, 0.18);
+}
+
+/* ---------------- dark (opt-in) ---------------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas: #06120d;
+  --canvas-2: #0a1a13;
+  --panel: #0c1f16;
+  --panel-2: #10291d;
+  --line: #1b3627;
+  --line-strong: #2a5540;
+
+  --ink: #f2f7f4;
+  --body: #b7cac0;
+  --muted: #8ca49a;
+  --faint: #6d857b;
+
+  --brand: #34d399;
+  --brand-strong: #6ee7b7;
+  --brand-tint: rgba(52, 211, 153, 0.13);
+  --on-brand: #04150d;
+
+  --data: #2dd4bf;
+  --data-tint: rgba(45, 212, 191, 0.13);
+  --danger: #f87171;
+  --danger-tint: rgba(248, 113, 113, 0.13);
+  --warn: #fbbf24;
+  --warn-tint: rgba(251, 191, 36, 0.13);
+
+  --dgm-fill: #10291d;
+  --dgm-fill-2: #16382a;
+  --dgm-line: #2f5f46;
+  --dgm-line-2: #1b3627;
+
+  --grid-line: rgba(180, 220, 200, 0.06);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.45), 0 18px 40px -18px rgba(0, 0, 0, 0.7);
 }
 
 @layer base {
   html {
-    color-scheme: dark;
     scroll-padding-top: 5.5rem;
   }
   body {
-    @apply bg-navy-950 font-sans text-slate-300 antialiased;
+    @apply bg-canvas font-sans text-body antialiased;
     -webkit-font-smoothing: antialiased;
   }
   ::selection {
-    @apply bg-safety-500/30 text-white;
+    @apply bg-brand-tint text-ink;
   }
   h1, h2, h3, h4 {
-    @apply text-white tracking-tight;
+    @apply text-ink tracking-tight;
     text-wrap: balance;
   }
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-cyan-flow;
+    @apply outline-2 outline-offset-2 outline-brand;
   }
 }
 
 @layer utilities {
-  /* Faint engineering grid used behind dark sections */
+  /* Faint engineering grid used behind hero and feature sections */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
     background-size: 56px 56px;
   }
-  .text-balance { text-wrap: balance; }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-lift { box-shadow: var(--shadow-lift); }
   .text-pretty { text-wrap: pretty; }
 }
 

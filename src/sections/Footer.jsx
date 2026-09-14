@@ -17,7 +17,7 @@ const NAV = [
       ["Traction", "#traction"],
       ["Team", "#team"],
       ["Pilot Access", "#pilot"],
-      ["Ogbontor Engineering", "#top"],
+      ["Ogbontor Engineering Enterprise", "#top"],
     ],
   },
 ];
@@ -42,13 +42,13 @@ const SOCIAL = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-navy-700 bg-navy-950 px-5 pt-16 pb-10 sm:px-8">
+    <footer className="border-t border-panel-2 bg-canvas px-5 pt-16 pb-10 sm:px-8">
       <div className="mx-auto w-full max-w-7xl">
         {/* understated closing CTA */}
-        <div className="flex flex-col gap-5 rounded-2xl border border-navy-600 bg-navy-900/70 p-7 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+        <div className="flex flex-col gap-5 rounded-2xl border border-line bg-canvas-2/70 p-7 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <div>
             <h2 className="text-xl font-bold sm:text-2xl">Partner with Us</h2>
-            <p className="mt-2 max-w-xl text-[0.93rem] leading-relaxed text-slate-400">
+            <p className="mt-2 max-w-xl text-[0.93rem] leading-relaxed text-muted">
               Conversion centres, fleet operators, underwriters and grant programmes — the safety
               layer works better the more of the corridor it covers.
             </p>
@@ -61,18 +61,15 @@ export default function Footer() {
         <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
           <div>
             <Logo className="h-9" />
-            <p className="mt-4 max-w-xs text-[0.9rem] leading-relaxed text-slate-400">
+            <p className="mt-4 max-w-xs text-[0.9rem] leading-relaxed text-muted">
               DePIN safety infrastructure for the CNG transition. Engineering safety, empowering
               mobility.
-            </p>
-            <p className="mt-4 font-mono text-[11px] text-slate-500">
-              Powered by Ogbontor Engineering
             </p>
           </div>
 
           {NAV.map((col) => (
             <nav key={col.heading} aria-label={col.heading}>
-              <h3 className="font-mono text-[10.5px] tracking-[0.16em] text-slate-400 uppercase">
+              <h3 className="font-mono text-[10.5px] tracking-[0.16em] text-muted uppercase">
                 {col.heading}
               </h3>
               <ul className="mt-4 space-y-2.5">
@@ -80,7 +77,7 @@ export default function Footer() {
                   <li key={label}>
                     <a
                       href={href}
-                      className="text-[0.9rem] text-slate-400 transition-colors hover:text-white"
+                      className="text-[0.9rem] text-muted transition-colors hover:text-ink"
                     >
                       {label}
                     </a>
@@ -91,14 +88,14 @@ export default function Footer() {
           ))}
 
           <div>
-            <h3 className="font-mono text-[10.5px] tracking-[0.16em] text-slate-400 uppercase">
+            <h3 className="font-mono text-[10.5px] tracking-[0.16em] text-muted uppercase">
               Contact
             </h3>
-            <ul className="mt-4 space-y-2.5 text-[0.9rem] text-slate-400">
+            <ul className="mt-4 space-y-2.5 text-[0.9rem] text-muted">
               <li>
                 <a
                   href="mailto:victorogbonna313@gmail.com"
-                  className="transition-colors hover:text-white"
+                  className="transition-colors hover:text-ink"
                 >
                   victorogbonna313@gmail.com
                 </a>
@@ -118,7 +115,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label={s.label}
-                    className="grid size-9 place-items-center rounded-lg border border-navy-600 bg-navy-800/60 text-slate-400 transition-colors hover:border-cyan-flow/50 hover:text-white"
+                    className="grid size-9 place-items-center rounded-lg border border-line bg-panel-2/60 text-muted transition-colors hover:border-data/50 hover:text-ink"
                   >
                     <svg viewBox="0 0 24 24" className="size-4" fill="currentColor">
                       <path d={s.path} />
@@ -130,14 +127,18 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-navy-800 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-[11px] text-slate-500">
-            © {new Date().getFullYear()} CNG-Protect · Ogbontor Engineering. All rights reserved.
+        <div className="mt-12 flex flex-col gap-3 border-t border-panel-2 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-[11px] text-muted">
+            © {new Date().getFullYear()} CNG-Protect. All rights reserved.
           </p>
-          <p className="font-mono text-[11px] text-slate-500">
+          <p className="font-mono text-[11px] text-muted">
             Pilot-stage hardware. Specifications subject to change.
           </p>
         </div>
+
+        <p className="mt-8 border-t border-line pt-6 text-center text-[0.9rem] font-semibold text-ink">
+          Powered by Ogbontor Engineering Enterprise
+        </p>
       </div>
     </footer>
   );

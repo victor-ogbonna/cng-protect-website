@@ -53,9 +53,9 @@ const FEATURES = [
 ];
 
 const TONES = {
-  cyan: { text: "text-cyan-flow", ring: "border-cyan-flow/30 bg-cyan-flow/10", edge: "hover:border-cyan-flow/40" },
-  orange: { text: "text-safety-500", ring: "border-safety-500/30 bg-safety-500/10", edge: "hover:border-safety-500/40" },
-  green: { text: "text-green-safe", ring: "border-green-safe/30 bg-green-safe/10", edge: "hover:border-green-safe/40" },
+  cyan: { text: "text-data", ring: "border-data/25 bg-data-tint", edge: "hover:border-data/40" },
+  orange: { text: "text-warn", ring: "border-warn/25 bg-warn-tint", edge: "hover:border-warn/40" },
+  green: { text: "text-brand", ring: "border-brand/25 bg-brand-tint", edge: "hover:border-brand/40" },
 };
 
 export default function Hardware() {
@@ -63,7 +63,7 @@ export default function Hardware() {
     <Section id="hardware" grid>
       <SectionHeading
         eyebrow="Hardware architecture"
-        tone="cyan"
+        tone="data"
         title="An edge node engineered to work when nothing else does."
         lede="No connectivity, no cloud round-trip, no user in the loop. The fail-safe is a physical circuit that decides locally in milliseconds."
       />
@@ -74,7 +74,7 @@ export default function Hardware() {
           return (
             <article
               key={f.title}
-              className={`flex flex-col rounded-xl border border-navy-600 bg-navy-800/40 p-6 transition-colors ${t.edge} hover:bg-navy-800/70`}
+              className={`flex flex-col rounded-xl border border-line bg-panel-2/40 p-6 transition-colors ${t.edge} hover:bg-panel-2/70`}
             >
               <span className={`grid size-11 place-items-center rounded-lg border ${t.ring} ${t.text}`}>
                 <svg
@@ -90,11 +90,11 @@ export default function Hardware() {
                 </svg>
               </span>
               <h3 className="mt-5 text-lg leading-snug font-semibold">{f.title}</h3>
-              <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-slate-400">{f.body}</p>
-              <dl className="mt-6 space-y-2 border-t border-navy-700 pt-4">
+              <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-muted">{f.body}</p>
+              <dl className="mt-6 space-y-2 border-t border-panel-2 pt-4">
                 {f.specs.map(([k, v]) => (
                   <div key={k} className="flex items-baseline justify-between gap-3">
-                    <dt className="text-[11px] tracking-wide text-slate-400 uppercase">{k}</dt>
+                    <dt className="text-[11px] tracking-wide text-muted uppercase">{k}</dt>
                     <dd className={`font-mono text-[11.5px] font-medium ${t.text}`}>{v}</dd>
                   </div>
                 ))}
@@ -107,14 +107,14 @@ export default function Hardware() {
       {/* exploded view */}
       <div
         id="architecture"
-        className="mt-4 grid gap-8 rounded-2xl border border-navy-600 bg-navy-900/70 p-6 sm:p-9 lg:grid-cols-[1.2fr_1fr] lg:items-center"
+        className="mt-4 grid gap-8 rounded-2xl border border-line bg-canvas-2/70 p-6 sm:p-9 lg:grid-cols-[1.2fr_1fr] lg:items-center"
       >
         <div className="order-2 lg:order-1">
           <BoardDiagram />
         </div>
         <div className="order-1 lg:order-2">
           <h3 className="text-2xl font-bold">Inside the node</h3>
-          <p className="mt-4 text-[0.95rem] leading-relaxed text-slate-400">
+          <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">
             Four layers in a single sealed stack. Every one of them has a job during a leak, and
             none of them needs a phone signal to do it.
           </p>
@@ -127,13 +127,13 @@ export default function Hardware() {
                 >
                   {`0${i + 1}`}
                 </span>
-                <span className="text-[0.92rem] leading-relaxed text-slate-300">{l.label}</span>
+                <span className="text-[0.92rem] leading-relaxed text-body">{l.label}</span>
               </li>
             ))}
           </ol>
-          <p className="mt-7 rounded-lg border border-navy-600 bg-navy-800/60 p-4 font-mono text-[11.5px] leading-relaxed text-slate-400">
-            <span className="text-safety-300">threshold breach</span> → relay opens →{" "}
-            <span className="text-green-safe">gas starved</span> → event signed → 4G uplink → Lisk
+          <p className="mt-7 rounded-lg border border-line bg-panel-2/60 p-4 font-mono text-[11.5px] leading-relaxed text-muted">
+            <span className="text-warn">threshold breach</span> → relay opens →{" "}
+            <span className="text-brand">gas starved</span> → event signed → 4G uplink → chain
           </p>
         </div>
       </div>

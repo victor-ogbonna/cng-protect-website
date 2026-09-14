@@ -5,7 +5,17 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# SPA fallback — single page, but keeps deep links and 404s on the app shell.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Short path to the bookings function used by /admin.
+[[redirects]]
+  from = "/api/bookings"
+  to = "/.netlify/functions/bookings"
+  status = 200
+
+# SPA fallback — serves the app shell for /admin and any deep link.
 [[redirects]]
   from = "/*"
   to = "/index.html"

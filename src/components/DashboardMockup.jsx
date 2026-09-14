@@ -75,28 +75,28 @@ export default function DashboardMockup() {
     <div
       onMouseEnter={() => (paused.current = true)}
       onMouseLeave={() => (paused.current = false)}
-      className="overflow-hidden rounded-2xl border border-navy-500/70 bg-navy-900/90 shadow-2xl shadow-black/50 backdrop-blur"
+      className="overflow-hidden rounded-2xl border border-line-strong/70 bg-canvas-2/90 shadow-2xl shadow-black/50 backdrop-blur"
     >
       {/* window chrome */}
-      <div className="flex items-center gap-3 border-b border-navy-600 bg-navy-800/80 px-4 py-2.5">
+      <div className="flex items-center gap-3 border-b border-line bg-panel-2/80 px-4 py-2.5">
         <div className="flex gap-1.5">
-          <span className="size-2.5 rounded-full bg-navy-500" />
-          <span className="size-2.5 rounded-full bg-navy-500" />
-          <span className="size-2.5 rounded-full bg-navy-500" />
+          <span className="size-2.5 rounded-full bg-line-strong" />
+          <span className="size-2.5 rounded-full bg-line-strong" />
+          <span className="size-2.5 rounded-full bg-line-strong" />
         </div>
-        <p className="min-w-0 truncate font-mono text-[11px] text-slate-500">
-          app.cngprotect.io<span className="text-slate-600">/fleet/ogbontor-transit</span>
+        <p className="min-w-0 truncate font-mono text-[11px] text-muted">
+          app.cngprotect.io<span className="text-faint">/fleet/ogbontor-transit</span>
         </p>
-        <span className="ml-auto inline-flex items-center gap-1.5 font-mono text-[10px] text-green-safe">
-          <span className="size-1.5 animate-pulse rounded-full bg-green-safe" />
+        <span className="ml-auto inline-flex items-center gap-1.5 font-mono text-[10px] text-brand">
+          <span className="size-1.5 animate-pulse rounded-full bg-brand" />
           LIVE
         </span>
       </div>
 
-      <div className="grid gap-px bg-navy-600/60 sm:grid-cols-[1fr_1.35fr]">
+      <div className="grid gap-px bg-line/60 sm:grid-cols-[1fr_1.35fr]">
         {/* ---- fleet list ---- */}
-        <div className="min-w-0 bg-navy-900 p-4">
-          <p className="font-mono text-[10px] tracking-[0.16em] text-slate-500 uppercase">
+        <div className="min-w-0 bg-canvas-2 p-4">
+          <p className="font-mono text-[10px] tracking-[0.16em] text-muted uppercase">
             Fleet · 4 nodes
           </p>
           <ul className="mt-3 space-y-1.5">
@@ -111,24 +111,24 @@ export default function DashboardMockup() {
                     aria-pressed={on}
                     className={`flex w-full items-center gap-2.5 rounded-lg border px-2.5 py-2 text-left transition-colors ${
                       on
-                        ? "border-cyan-flow/50 bg-navy-700"
-                        : "border-transparent hover:border-navy-500 hover:bg-navy-800"
+                        ? "border-data/50 bg-panel-2"
+                        : "border-transparent hover:border-line-strong hover:bg-panel-2"
                     }`}
                   >
                     <span
                       className={`size-2 shrink-0 rounded-full ${
-                        isWarn ? "bg-safety-500" : "bg-green-safe"
+                        isWarn ? "bg-warn" : "bg-brand"
                       }`}
                     />
                     <span className="min-w-0 flex-1">
-                      <span className="block truncate font-mono text-[11.5px] font-medium text-white">
+                      <span className="block truncate font-mono text-[11.5px] font-medium text-ink">
                         {v.plate}
                       </span>
-                      <span className="block truncate text-[10.5px] text-slate-500">{v.route}</span>
+                      <span className="block truncate text-[10.5px] text-muted">{v.route}</span>
                     </span>
                     <span
                       className={`shrink-0 font-mono text-[10px] ${
-                        isWarn ? "text-safety-300" : "text-slate-500"
+                        isWarn ? "text-warn" : "text-muted"
                       }`}
                     >
                       {isWarn ? "WATCH" : "SAFE"}
@@ -139,7 +139,7 @@ export default function DashboardMockup() {
             })}
           </ul>
 
-          <dl className="mt-4 grid grid-cols-2 gap-2 border-t border-navy-700 pt-4">
+          <dl className="mt-4 grid grid-cols-2 gap-2 border-t border-panel-2 pt-4">
             {[
               ["Uptime", "99.4%"],
               ["Cut-offs", "0"],
@@ -147,25 +147,25 @@ export default function DashboardMockup() {
               ["Audit gaps", "0"],
             ].map(([k, val]) => (
               <div key={k}>
-                <dt className="text-[10px] text-slate-500">{k}</dt>
-                <dd className="font-mono text-[13px] font-semibold text-white">{val}</dd>
+                <dt className="text-[10px] text-muted">{k}</dt>
+                <dd className="font-mono text-[13px] font-semibold text-ink">{val}</dd>
               </div>
             ))}
           </dl>
         </div>
 
         {/* ---- telemetry detail ---- */}
-        <div className="min-w-0 bg-navy-900 p-4">
+        <div className="min-w-0 bg-canvas-2 p-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="font-mono text-[11px] text-slate-500">{active.id}</p>
-              <p className="text-sm font-semibold text-white">{active.plate}</p>
+              <p className="font-mono text-[11px] text-muted">{active.id}</p>
+              <p className="text-sm font-semibold text-ink">{active.plate}</p>
             </div>
             <span
               className={`rounded-md border px-2.5 py-1 font-mono text-[10px] font-bold tracking-wider ${
                 warn
-                  ? "border-safety-500/50 bg-safety-500/10 text-safety-300"
-                  : "border-green-safe/40 bg-green-safe/10 text-green-safe"
+                  ? "border-warn/50 bg-warn/10 text-warn"
+                  : "border-brand/40 bg-brand/10 text-brand"
               }`}
             >
               {warn ? "ELEVATED" : "SAFE"}
@@ -174,26 +174,26 @@ export default function DashboardMockup() {
 
           <div className="mt-3 grid grid-cols-3 gap-2">
             {[
-              ["Methane", `${level.toFixed(1)}% LEL`, warn ? "text-safety-300" : "text-green-safe"],
-              ["Cabin", "32.8 °C", "text-white"],
-              ["Cut-off", "ARMED", "text-cyan-flow"],
+              ["Methane", `${level.toFixed(1)}% LEL`, warn ? "text-warn" : "text-brand"],
+              ["Cabin", "32.8 °C", "text-ink"],
+              ["Cut-off", "ARMED", "text-data"],
             ].map(([k, val, tone]) => (
-              <div key={k} className="rounded-lg border border-navy-600 bg-navy-800/70 px-2.5 py-2">
-                <p className="text-[9.5px] tracking-wide text-slate-500 uppercase">{k}</p>
+              <div key={k} className="rounded-lg border border-line bg-panel-2/70 px-2.5 py-2">
+                <p className="text-[9.5px] tracking-wide text-muted uppercase">{k}</p>
                 <p className={`font-mono text-[13px] font-bold ${tone}`}>{val}</p>
               </div>
             ))}
           </div>
 
           {/* methane trace */}
-          <div className="mt-3 rounded-lg border border-navy-600 bg-navy-950/70 p-2.5">
+          <div className="mt-3 rounded-lg border border-line bg-canvas/70 p-2.5">
             <svg viewBox="0 0 320 60" className="h-16 w-full" aria-hidden="true">
-              <g stroke="#1F3055" strokeWidth="0.8">
+              <g stroke="var(--line)" strokeWidth="0.8">
                 <path d="M0 10h320M0 33h320M0 56h320" />
               </g>
               <path
                 d={`M0 ${yFor(ALARM_LEL)}h320`}
-                stroke="#FF6B1A"
+                stroke="var(--warn)"
                 strokeOpacity="0.5"
                 strokeWidth="1"
                 strokeDasharray="4 4"
@@ -201,33 +201,33 @@ export default function DashboardMockup() {
               <polyline
                 points={points}
                 fill="none"
-                stroke={warn ? "#FF6B1A" : "#34D399"}
+                stroke={warn ? "var(--warn)" : "var(--brand)"}
                 strokeWidth="1.8"
                 strokeLinejoin="round"
               />
             </svg>
-            <div className="flex justify-between font-mono text-[9px] text-slate-600">
+            <div className="flex justify-between font-mono text-[9px] text-faint">
               <span>−120 s</span>
-              <span className="text-safety-300/70">cut-off threshold {ALARM_LEL}% LEL</span>
+              <span className="text-warn/70">cut-off threshold {ALARM_LEL}% LEL</span>
               <span>now</span>
             </div>
           </div>
 
           {/* on-chain ledger */}
-          <p className="mt-4 font-mono text-[10px] tracking-[0.16em] text-slate-500 uppercase">
-            Lisk attestation ledger
+          <p className="mt-4 font-mono text-[10px] tracking-[0.16em] text-muted uppercase">
+            On-chain attestation ledger
           </p>
           <ul className="mt-2 space-y-1">
             {ledger.map((row) => (
               <li
                 key={row.key}
-                className="flex items-center gap-2 rounded border border-navy-700/80 bg-navy-800/40 px-2 py-1.5 font-mono text-[10px]"
+                className="flex items-center gap-2 rounded border border-panel-2/80 bg-panel-2/40 px-2 py-1.5 font-mono text-[10px]"
               >
-                <span className="text-green-safe">✓</span>
-                <span className="min-w-0 flex-1 truncate text-cyan-flow/80">{row.hash}</span>
-                <span className="hidden shrink-0 text-slate-500 sm:inline">#{row.block}</span>
+                <span className="text-brand">✓</span>
+                <span className="min-w-0 flex-1 truncate text-data/80">{row.hash}</span>
+                <span className="hidden shrink-0 text-muted sm:inline">#{row.block}</span>
                 <span
-                  className={`shrink-0 ${row.lel ? "text-safety-300" : "text-slate-500"}`}
+                  className={`shrink-0 ${row.lel ? "text-warn" : "text-muted"}`}
                 >
                   {row.lel ? `${row.lel}%` : "0%"}
                 </span>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Logo } from "../components/Brand";
+import ThemeToggle from "../components/ThemeToggle";
 import { Button } from "../components/UI";
 
 const LINKS = [
@@ -33,7 +34,7 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled || open
-          ? "border-b border-navy-600/80 bg-navy-950/85 backdrop-blur-xl"
+          ? "border-b border-line bg-canvas/90 shadow-card backdrop-blur-xl"
           : "border-b border-transparent"
       }`}
     >
@@ -48,7 +49,7 @@ export default function Navbar() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="rounded-md px-3 py-2 text-sm font-medium text-slate-400 transition-colors hover:bg-navy-800 hover:text-white"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-panel-2 hover:text-ink"
                 >
                   {l.label}
                 </a>
@@ -58,11 +59,14 @@ export default function Navbar() {
         </nav>
 
         {/* Visibility lives on the wrapper: the Button sets its own display. */}
-        <div className="ml-auto hidden lg:ml-4 lg:block">
+        <div className="ml-auto hidden items-center gap-2 lg:ml-4 lg:flex">
+          <ThemeToggle />
           <Button href="#pilot" size="sm">
             Request Pilot Access
           </Button>
         </div>
+
+        <ThemeToggle className="ml-auto lg:hidden" />
 
         <button
           type="button"
@@ -70,7 +74,7 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="ml-auto grid size-10 place-items-center rounded-lg border border-navy-500 bg-navy-800/60 text-white lg:hidden"
+          className="grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-panel text-ink lg:hidden"
         >
           <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2">
             {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -82,15 +86,15 @@ export default function Navbar() {
       <div
         id="mobile-nav"
         hidden={!open}
-        className="border-t border-navy-700 bg-navy-950/95 px-5 pt-2 pb-6 backdrop-blur-xl lg:hidden"
+        className="border-t border-line bg-canvas px-5 pt-2 pb-6 shadow-lift lg:hidden"
       >
-        <ul className="divide-y divide-navy-800">
+        <ul className="divide-y divide-line">
           {LINKS.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block py-3.5 text-[0.95rem] font-medium text-slate-300"
+                className="block py-3.5 text-[0.95rem] font-medium text-body"
               >
                 {l.label}
               </a>

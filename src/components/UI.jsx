@@ -10,12 +10,10 @@ const SIZES = {
 
 const VARIANTS = {
   primary:
-    "bg-safety-500 text-navy-950 shadow-lg shadow-safety-500/25 " +
-    "hover:bg-safety-600 hover:shadow-safety-500/40 hover:-translate-y-0.5",
+    "bg-brand text-on-brand shadow-card hover:bg-brand-strong hover:shadow-lift hover:-translate-y-0.5",
   outline:
-    "border border-navy-500 bg-navy-800/60 text-white backdrop-blur " +
-    "hover:border-cyan-flow/60 hover:bg-navy-700/80 hover:-translate-y-0.5",
-  ghost: "text-slate-300 hover:text-white",
+    "border border-line-strong bg-panel text-ink hover:border-brand hover:bg-brand-tint hover:-translate-y-0.5",
+  ghost: "text-muted hover:text-ink",
 };
 
 export function Button({ as = "a", variant = "primary", size = "md", className = "", ...props }) {
@@ -24,11 +22,12 @@ export function Button({ as = "a", variant = "primary", size = "md", className =
 }
 
 /** Small uppercase eyebrow that labels each section. */
-export function Eyebrow({ children, tone = "cyan", className = "" }) {
+export function Eyebrow({ children, tone = "brand", className = "" }) {
   const tones = {
-    cyan: "border-cyan-flow/30 bg-cyan-flow/10 text-cyan-flow",
-    orange: "border-safety-500/30 bg-safety-500/10 text-safety-300",
-    green: "border-green-safe/30 bg-green-safe/10 text-green-safe",
+    brand: "border-brand/25 bg-brand-tint text-brand",
+    data: "border-data/25 bg-data-tint text-data",
+    danger: "border-danger/25 bg-danger-tint text-danger",
+    warn: "border-warn/25 bg-warn-tint text-warn",
   };
   return (
     <span
@@ -48,7 +47,7 @@ export function SectionHeading({ eyebrow, tone, title, lede, align = "center", c
         {title}
       </h2>
       {lede && (
-        <p className={`mt-5 text-pretty text-[1.05rem] leading-relaxed text-slate-400 ${centered ? "mx-auto" : ""}`}>
+        <p className={`mt-5 text-pretty text-[1.05rem] leading-relaxed text-muted ${centered ? "mx-auto" : ""}`}>
           {lede}
         </p>
       )}
@@ -68,5 +67,18 @@ export function Section({ id, children, className = "", grid = false }) {
       )}
       <div className="relative mx-auto w-full max-w-7xl">{children}</div>
     </section>
+  );
+}
+
+/** Card surface used across feature, metric and profile grids. */
+export function Card({ as = "div", className = "", hover = true, ...props }) {
+  const Tag = as;
+  return (
+    <Tag
+      className={`rounded-xl border border-line bg-panel shadow-card ${
+        hover ? "transition-all duration-200 hover:border-line-strong hover:shadow-lift" : ""
+      } ${className}`}
+      {...props}
+    />
   );
 }

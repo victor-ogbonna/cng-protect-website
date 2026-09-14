@@ -7,13 +7,13 @@
     <title>CNG-Protect — Edge-AI &amp; Decentralized Safety for CNG Fleets</title>
     <meta
       name="description"
-      content="CNG-Protect is a DePIN hardware fail-safe that autonomously prevents gas explosions and streams edge-signed safety telemetry to the Lisk blockchain for immutable fleet insurance audits."
+      content="CNG-Protect is a DePIN hardware fail-safe that autonomously prevents gas explosions and streams edge-signed safety telemetry to the blockchain for immutable fleet insurance audits."
     />
-    <meta name="theme-color" content="#060B18" />
+    <meta name="theme-color" content="#ffffff" />
     <meta property="og:title" content="CNG-Protect — De-Risking the CNG Transition" />
     <meta
       property="og:description"
-      content="Edge-AI hardware fail-safe + edge-signed telemetry on Lisk. Built for African transit fleets and their underwriters."
+      content="Edge-AI hardware fail-safe + edge-signed, on-chain telemetry. Built for African transit fleets and their underwriters."
     />
     <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,6 +24,14 @@
     />
   </head>
   <body>
+    <script>
+      // Light is the default; apply a stored dark choice before first paint.
+      try {
+        if (localStorage.getItem("cngp-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      } catch (e) {}
+    </script>
     <div id="root"></div>
     <!-- Static mirror of the React pilot form so Netlify registers it at build
          time. Hidden from users; the live form is rendered by PilotCTA.jsx. -->

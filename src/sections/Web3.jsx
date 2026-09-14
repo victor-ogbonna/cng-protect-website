@@ -150,6 +150,51 @@ export default function Web3() {
           </div>
         </div>
 
+        {/* the shipped ledger — evidence, not a mockup */}
+        <div className="mt-16 grid gap-8 rounded-2xl border border-line bg-panel p-6 shadow-card sm:p-9 lg:grid-cols-[1fr_1.5fr] lg:items-center">
+          <div>
+            <Eyebrow tone="brand">Running today</Eyebrow>
+            <h3 className="mt-5 text-2xl font-bold">
+              Every reading already lands on chain.
+            </h3>
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">
+              This is the build, not a diagram. Each safe interval writes a signed attestation; a
+              gas concentration over threshold writes a hazard record instead. Both carry the
+              reading that produced them and a transaction hash anyone can resolve.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {[
+                ["Safe interval", "Signed attestation with gas and temperature at the time of writing."],
+                ["Hazard event", "Written the moment concentration crosses the threshold — 4 095 ppm in the log below."],
+                ["Every entry", "Carries its own transaction hash, so an underwriter verifies it without asking us."],
+              ].map(([k, v]) => (
+                <li key={k} className="flex gap-3">
+                  <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span className="text-[0.9rem] leading-relaxed text-body">
+                    <span className="font-semibold text-ink">{k}:</span> {v}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <figure className="min-w-0">
+            <div className="overflow-hidden rounded-xl border border-line-strong bg-panel-2">
+              <img
+                src="/media/onchain-ledger.webp"
+                alt="The CNG-Protect blockchain ledger screen, listing on-chain events: safe-driving reward attestations recording gas readings around 540 ppm at 28.8 degrees, and hazard records written at 4095 ppm, each with its own transaction hash."
+                loading="lazy"
+                width="1149"
+                height="739"
+                className="block w-full"
+              />
+            </div>
+            <figcaption className="mt-3 text-center font-mono text-[10.5px] tracking-wide text-muted">
+              ON-CHAIN EVENT LOG · TESTNET
+            </figcaption>
+          </figure>
+        </div>
+
         {/* companion mobile app */}
         <div className="mt-16 grid gap-10 rounded-2xl border border-line bg-canvas-2/60 p-6 sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>

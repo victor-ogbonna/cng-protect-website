@@ -15,9 +15,9 @@ const POINTS = [
     tone: "text-danger",
     ring: "border-danger/25 bg-danger-tint",
     title: "The Danger",
-    body: "Substandard conversions and uncertified cylinders lead to catastrophic, fatal explosions — Badagry and Kaduna are the incidents that made national news, not the outliers.",
+    body: "Substandard conversions and uncertified cylinders lead to catastrophic, fatal explosions. The Kaduna bus blast happened this year, Badagry before it — and those are just the ones that reached national news.",
     stat: "Fatal",
-    statLabel: "blasts in Badagry & Kaduna",
+    statLabel: "Kaduna this year, Badagry before it",
   },
   {
     n: "03",
@@ -37,63 +37,69 @@ export default function Problem() {
         eyebrow="The bottleneck"
         tone="danger"
         title="Cost is pushing fleets to CNG. Fear is holding them back."
-        lede="Nigeria is converting its commercial fleet faster than it can certify it. The gap between the two is measured in write-offs and lives."
+        lede="Nigeria is converting its commercial fleet faster than it can certify it. The gap between the two is measured in write-offs and lives — and it is widening this year, not last."
       />
 
-      {/* evidence */}
+      {/* evidence — the Kaduna bus leads, because the copy names it and it is
+          the exact vehicle class our pilot fleet is drawn from */}
       <div className="mt-14 grid gap-4 sm:grid-cols-5">
-        <figure className="relative overflow-hidden rounded-xl border border-warn/25 sm:col-span-3">
+        <figure className="relative overflow-hidden rounded-xl border border-danger/25 sm:col-span-3 sm:min-h-[22rem]">
           <img
-            src="/media/incident-cylinder-blast.webp"
-            alt="A saloon car torn open at a CNG filling station after its cylinder ruptured."
+            src="/media/incident-kaduna-blast.webp"
+            alt="A commercial passenger bus in Kaduna torn open by a CNG explosion, its cylinder blown clear of the vehicle and lying in the road."
             loading="lazy"
-            width="1200"
-            height="727"
-            className="h-56 w-full object-cover contrast-[1.05] grayscale-[35%] transition duration-500 hover:grayscale-0 sm:h-full sm:min-h-[18rem]"
+            width="747"
+            height="411"
+            className="h-60 w-full object-cover object-[center_78%] contrast-[1.05] grayscale-[30%] transition duration-500 hover:grayscale-0 sm:absolute sm:inset-0 sm:size-full"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
-          <figcaption className="absolute inset-x-0 bottom-0 p-4">
-            <span className="font-mono text-[10px] tracking-[0.14em] text-warn uppercase">
-              Cylinder rupture · filling station
+          <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/35 to-transparent" />
+          <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+            <span className="font-mono text-[10px] tracking-[0.14em] text-danger uppercase">
+              Kaduna · earlier this year
             </span>
-            <p className="mt-1 text-sm font-medium text-white">
-              One rupture writes off the vehicle, the bay and everyone standing in it.
+            <p className="mt-1.5 max-w-sm text-[0.95rem] leading-snug font-medium text-white">
+              The cylinder is the one in the foreground. It left the vehicle.
             </p>
           </figcaption>
         </figure>
 
-        <div className="grid gap-4 sm:col-span-2">
-          <figure className="relative overflow-hidden rounded-xl border border-warn/25">
+        <div className="grid gap-4 sm:col-span-2 sm:grid-rows-2">
+          <figure className="relative h-44 overflow-hidden rounded-xl border border-danger/25 sm:h-auto sm:min-h-0">
+            <img
+              src="/media/incident-cylinder-blast.webp"
+              alt="A saloon car torn open at a CNG filling station after its cylinder ruptured."
+              loading="lazy"
+              width="1200"
+              height="727"
+              className="absolute inset-0 size-full object-cover contrast-[1.05] grayscale-[30%] transition duration-500 hover:grayscale-0"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+            <figcaption className="absolute inset-x-0 bottom-0 p-3.5">
+              <span className="font-mono text-[10px] tracking-[0.12em] text-danger uppercase">
+                Cylinder rupture · filling station
+              </span>
+              <p className="mt-0.5 text-[0.8rem] leading-snug text-white/85">
+                One rupture writes off the vehicle and the bay.
+              </p>
+            </figcaption>
+          </figure>
+
+          <figure className="relative h-44 overflow-hidden rounded-xl border border-danger/25 sm:h-auto sm:min-h-0">
             <img
               src="/media/incident-edo-blast.webp"
               alt="Two burnt-out vehicles after a CNG explosion in Edo State, Nigeria."
               loading="lazy"
               width="692"
               height="618"
-              className="h-40 w-full object-cover contrast-[1.05] grayscale-[35%] transition duration-500 hover:grayscale-0"
+              className="absolute inset-0 size-full object-cover contrast-[1.05] grayscale-[30%] transition duration-500 hover:grayscale-0"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-            <figcaption className="absolute inset-x-0 bottom-0 p-3.5 font-mono text-[10px] tracking-[0.12em] text-warn uppercase">
-              Edo State · Oct 2024
-            </figcaption>
-          </figure>
-
-          <figure className="relative overflow-hidden rounded-xl border border-line">
-            <img
-              src="/media/cylinder-in-boot.webp"
-              alt="A CNG cylinder strapped into the boot of a hatchback, the typical aftermarket conversion."
-              loading="lazy"
-              width="318"
-              height="159"
-              className="h-40 w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
             <figcaption className="absolute inset-x-0 bottom-0 p-3.5">
-              <span className="font-mono text-[10px] tracking-[0.12em] text-white/70 uppercase">
-                The typical conversion
+              <span className="font-mono text-[10px] tracking-[0.12em] text-danger uppercase">
+                Edo State
               </span>
               <p className="mt-0.5 text-[0.8rem] leading-snug text-white/85">
-                An unmonitored cylinder in an enclosed boot. Nobody is watching it.
+                Two vehicles, one leak, no warning.
               </p>
             </figcaption>
           </figure>

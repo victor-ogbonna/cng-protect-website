@@ -1,6 +1,6 @@
 import BoardDiagram from "../components/BoardDiagram";
 import { BOARD_LAYERS } from "../data/boardLayers";
-import { Section, SectionHeading } from "../components/UI";
+import { Card, Section, SectionHeading } from "../components/UI";
 
 const FEATURES = [
   {
@@ -138,48 +138,53 @@ export default function Hardware() {
         </div>
       </div>
 
-      {/* the physical unit, and where it goes */}
-      <div className="mt-5 grid gap-5 lg:grid-cols-[1.45fr_1fr]">
-        <figure className="overflow-hidden rounded-xl border border-line bg-panel shadow-card">
+      {/* One card. The render carries the row; the boot photo is only 318px
+          wide natively, so it stays small rather than being blown up to match. */}
+      <Card hover={false} className="mt-5 grid gap-0 overflow-hidden lg:grid-cols-[1.5fr_1fr]">
+        <figure className="relative min-h-64 bg-panel-2">
           <img
             src="/media/node-closeup.webp"
             alt="Close view of the CNG-Protect edge node: a ruggedised sealed housing with finned intakes, a status LED array and armoured cable runs leaving the right-hand side."
             loading="lazy"
             width="900"
             height="832"
-            className="block w-full"
+            className="h-64 w-full object-cover object-center sm:h-80 lg:absolute lg:inset-0 lg:h-full"
           />
-          <figcaption className="border-t border-line px-4 py-3.5 sm:px-5">
-            <span className="font-mono text-[10px] tracking-[0.14em] text-data uppercase">
-              The node · sealed housing
-            </span>
-            <p className="mt-1.5 text-[0.88rem] leading-relaxed text-muted">
-              Finned intakes for the NDIR sample path, a status array readable at a glance, and
-              armoured runs out to the cut-off relay. Design visualisation of the pilot build.
-            </p>
-          </figcaption>
         </figure>
 
-        <figure className="flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-panel shadow-card">
-          <img
-            src="/media/cylinder-in-boot.webp"
-            alt="A CNG cylinder strapped into the boot of a hatchback — the typical aftermarket conversion, and where the node mounts."
-            loading="lazy"
-            width="318"
-            height="159"
-            className="block aspect-[2/1] w-full object-cover"
-          />
-          <figcaption className="border-t border-line px-4 py-3.5 sm:px-5">
-            <span className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
-              Where it mounts
-            </span>
-            <p className="mt-1.5 text-[0.88rem] leading-relaxed text-muted">
-              The node clamps in the cylinder bay itself — the enclosed space a conversion leaves
-              unmonitored, and the only place a leak can be caught before it reaches the cabin.
-            </p>
-          </figcaption>
-        </figure>
-      </div>
+        <div className="border-t border-line p-6 sm:p-7 lg:border-t-0 lg:border-l">
+          <span className="font-mono text-[10px] tracking-[0.14em] text-data uppercase">
+            The node · sealed housing
+          </span>
+          <h3 className="mt-3 text-xl font-bold">One sealed box, two jobs.</h3>
+          <p className="mt-3 text-[0.9rem] leading-relaxed text-muted">
+            Finned intakes for the NDIR sample path, a status array readable at a glance from
+            outside the bay, and armoured runs out to the cut-off relay. Design visualisation of
+            the pilot build.
+          </p>
+
+          <figure className="mt-6 border-t border-line pt-6">
+            <img
+              src="/media/cylinder-in-boot.webp"
+              alt="A CNG cylinder strapped into the boot of a hatchback — the typical aftermarket conversion, and where the node mounts."
+              loading="lazy"
+              width="318"
+              height="159"
+              className="block w-full max-w-72 rounded-lg border border-line"
+            />
+            <figcaption className="mt-3 max-w-sm">
+              <span className="font-mono text-[10px] tracking-[0.14em] text-faint uppercase">
+                Where it mounts
+              </span>
+              <p className="mt-1.5 text-[0.85rem] leading-relaxed text-muted">
+                The node clamps in the cylinder bay itself — the enclosed space a conversion leaves
+                unmonitored, and the only place a leak can be caught before it reaches the cabin.
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+      </Card>
+
     </Section>
   );
 }

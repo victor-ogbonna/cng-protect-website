@@ -1,6 +1,10 @@
 # Generation prompt — exploded view of the edge node
 
-Replaces the hand-drawn SVG in `src/components/BoardDiagram.jsx`.
+**Used.** The output is `public/media/node-exploded.webp`, live in the Hardware
+section in place of the hand-drawn SVG (`src/components/BoardDiagram.jsx`, kept
+in the repo). Keep this prompt if you ever need to regenerate at a different
+crop or aspect — and keep the layer order, because the numbered legend beside
+the image reads top to bottom off `src/data/boardLayers.js`.
 
 Use it in Midjourney, Google Imagen / Gemini, DALL·E or Firefly. Generate at
 **16:9 or 3:2 landscape**, then drop the file into `public/media/` and point

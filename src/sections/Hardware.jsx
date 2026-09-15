@@ -1,4 +1,3 @@
-import BoardDiagram from "../components/BoardDiagram";
 import { BOARD_LAYERS } from "../data/boardLayers";
 import { Card, Section, SectionHeading } from "../components/UI";
 
@@ -109,14 +108,21 @@ export default function Hardware() {
         id="architecture"
         className="mt-4 grid gap-8 rounded-2xl border border-line bg-canvas-2/70 p-6 sm:p-9 lg:grid-cols-[1.2fr_1fr] lg:items-center"
       >
-        <div className="order-2 lg:order-1">
-          <BoardDiagram />
-        </div>
+        <figure className="order-2 lg:order-1">
+          <img
+            src="/media/node-exploded.webp"
+            alt="Exploded view of the edge node in four layers: a black anodised lid with hex bolts, a cylindrical optical gas sensor on a small carrier, the main green controller board with its microcontroller, cellular modem, SIM slot and three antenna connectors, and beneath it the relay carrier with a sealed automotive relay and screw terminal feeding red and black wires out of frame."
+            loading="lazy"
+            width="1240"
+            height="1021"
+            className="block w-full rounded-xl"
+          />
+        </figure>
         <div className="order-1 lg:order-2">
           <h3 className="text-2xl font-bold">Inside the node</h3>
           <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">
-            Four layers in a single sealed stack. Every one of them has a job during a leak, and
-            none of them needs a phone signal to do it.
+            Four layers in a single sealed stack, top to bottom. Every one of them has a job
+            during a leak, and none of them needs a phone signal to do it.
           </p>
           <ol className="mt-7 space-y-4">
             {BOARD_LAYERS.map((l, i) => (

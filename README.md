@@ -82,8 +82,11 @@ instrumentation (specs, hashes, telemetry).
   assembled pilot unit when one exists and drop the "design visualisation"
   labels. `HeroVisual.jsx` is the SVG the hero used before and is still in the
   repo if you want it back.
-- **The exploded diagram** (`BoardDiagram.jsx`) is still hand-drawn SVG. There
-  is a generation prompt for replacing it in `docs/board-render-prompt.md`.
+- **The exploded view** is now `node-exploded.webp`, generated from
+  `docs/board-render-prompt.md`. The four layers in the render map top-to-bottom
+  onto `src/data/boardLayers.js`, which drives the numbered legend beside it —
+  if you regenerate the image, keep that order. `BoardDiagram.jsx` is the SVG it
+  replaced and is still in the repo.
 - **Press list** — `src/data/press.js`. `namesUs: true` means the article was
   read and prints "CNG Protect" verbatim. Do not promote an entry to that flag
   without re-reading the article.

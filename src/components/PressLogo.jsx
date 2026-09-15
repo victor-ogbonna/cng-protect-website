@@ -1,9 +1,12 @@
 import { useState } from "react";
 
 /**
- * Renders `public/media/press/<slug>.svg` when one exists, and falls back to a
- * typographic plate built from `mark` + `face`. Drop real logo files in and
- * they take over with no code change.
+ * Renders `public/media/press/<slug>.png` when one exists, and falls back to a
+ * typographic plate built from `mark` + `face` if the file is missing.
+ *
+ * The plate is deliberately white in both themes: several of these marks carry
+ * their own background colour (BusinessDay red, TVC magenta, Guardian blue),
+ * and they are only recognisable on the ground their owners designed them for.
  */
 export default function PressLogo({ item, className = "" }) {
   const [useMark, setUseMark] = useState(false);
@@ -22,10 +25,13 @@ export default function PressLogo({ item, className = "" }) {
 
   return (
     <img
-      src={`/media/press/${slug}.svg`}
+      src={`/media/press/${slug}.png`}
       alt=""
+      width="128"
+      height="128"
+      loading="lazy"
       onError={() => setUseMark(true)}
-      className={`size-11 shrink-0 rounded-lg border border-line bg-panel-2 object-contain p-1.5 ${className}`}
+      className={`size-11 shrink-0 rounded-lg border border-line bg-white object-contain p-1 ${className}`}
     />
   );
 }

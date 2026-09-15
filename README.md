@@ -93,11 +93,13 @@ instrumentation (specs, hashes, telemetry).
 - **Press list** — `src/data/press.js`. `namesUs: true` means the article was
   read and prints "CNG Protect" verbatim. Do not promote an entry to that flag
   without re-reading the article.
-- **Press logos** are typographic plates, because outlet logos are third-party
-  brand assets. To use the real thing, drop an SVG at
-  `public/media/press/<slug>.svg` using the `slug` from `press.js`;
-  `PressLogo.jsx` picks it up and falls back to the plate if the file is
-  missing. No code change needed.
+- **Press logos** live in `public/media/press/<slug>.png`, taken from each
+  outlet's own site or favicon and used nominatively to show who reported the
+  SEVCP selection. They render on a white plate in both themes, because several
+  carry their own background colour and are only recognisable on it.
+  `PressLogo.jsx` falls back to a typographic plate if a file goes missing, so
+  a bad path degrades instead of breaking. If an outlet ever objects, delete
+  the file — the fallback covers it with no code change.
 - **The SEDC certificate** proves *SEVCP Incubation Track — Selected Finalist,
   top 10*. It is **not** a $5,000 investment certificate, and the caption says
   what it actually says. The separate "$5,000 SAFE investment" metric card is

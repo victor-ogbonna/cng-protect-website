@@ -1,9 +1,10 @@
 /**
  * Coverage of the SEVCP winners announcement (all 29 May 2026).
  *
- * `mark` + `face` render a typographic plate standing in for the outlet's
- * logo. To use a real logo instead, drop an SVG at
- * `public/media/press/<slug>.svg` — PressLogo picks it up automatically.
+ * Each outlet's own logo lives at `public/media/press/<slug>.png`, downloaded
+ * from the outlet (or its favicon) and used nominatively to show who reported
+ * the SEVCP selection. `mark` + `face` remain as the fallback plate if a file
+ * is ever missing.
  *
  * `namesUs: true` means the article's published list was checked and contains
  * "CNG Protect" verbatim — those are the two an investor can click to verify

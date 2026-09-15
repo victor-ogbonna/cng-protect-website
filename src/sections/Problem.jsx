@@ -55,7 +55,7 @@ export default function Problem() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/35 to-transparent" />
           <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
             <span className="font-mono text-[10px] tracking-[0.14em] text-danger uppercase">
-              Kaduna · earlier this year
+              Kaduna CNG bus explosion · earlier this year
             </span>
             <p className="mt-1.5 max-w-sm text-[0.95rem] leading-snug font-medium text-white">
               The cylinder is the one in the foreground. It left the vehicle.

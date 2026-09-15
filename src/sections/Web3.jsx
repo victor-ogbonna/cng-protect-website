@@ -209,19 +209,6 @@ export default function Web3() {
               ))}
             </ul>
 
-            <figure className="mt-7 max-w-sm">
-              <img
-                src="/media/app-settings.webp"
-                alt="The CNG-Protect settings screen: oracle wallet funded, dark mode and voice notification toggles, the Solana wallet address, and oracle statistics counting minted tokens and hazard records."
-                loading="lazy"
-                width="370"
-                height="238"
-                className="block w-full rounded-lg border border-line-strong"
-              />
-              <figcaption className="mt-2 font-mono text-[10px] tracking-[0.12em] text-faint uppercase">
-                Settings &amp; integrations
-              </figcaption>
-            </figure>
           </div>
 
           <div className="flex justify-center gap-4 sm:gap-6">

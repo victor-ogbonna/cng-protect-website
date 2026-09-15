@@ -27,8 +27,8 @@ const CHAIN = [
 const PRODUCTS = [
   {
     tag: "For fleet managers",
-    price: "$100",
-    unit: "/ vehicle / year",
+    price: "Per vehicle",
+    unit: "annual licence",
     title: "Safety SaaS dashboard",
     body: "Live methane, temperature and cut-off state across every node. Tamper and alarm alerts by SMS and push. Exportable, signature-verified incident history for regulators and courts.",
     tone: "cyan",
@@ -118,8 +118,8 @@ export default function Web3() {
                     >
                       {p.tag}
                     </span>
-                    <span className="font-mono text-sm text-muted">
-                      <span className="text-xl font-bold text-ink">{p.price}</span> {p.unit}
+                    <span className="font-mono text-[11px] tracking-wide text-muted">
+                      {p.price} · {p.unit}
                     </span>
                   </div>
                   <h3 className="mt-3 text-lg font-semibold">{p.title}</h3>

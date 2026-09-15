@@ -105,6 +105,12 @@ export default function Footer() {
                 <br />
                 University of Nigeria, Nsukka
               </li>
+              <li className="pt-1 font-mono text-[11.5px] text-muted">
+                RC 9557381
+                <span className="block text-[10.5px] text-faint">
+                  Registered with the CAC, Nigeria
+                </span>
+              </li>
             </ul>
 
             <ul className="mt-5 flex gap-2.5">
@@ -129,7 +135,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-panel-2 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-mono text-[11px] text-muted">
-            © {new Date().getFullYear()} CNG-Protect. All rights reserved.
+            © {new Date().getFullYear()} CNG-Protect · RC 9557381. All rights reserved.
           </p>
           <p className="font-mono text-[11px] text-muted">
             Pilot-stage hardware. Specifications subject to change.

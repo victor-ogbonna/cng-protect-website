@@ -4,6 +4,7 @@ import ThemeToggle from "../components/ThemeToggle";
 import { Button } from "../components/UI";
 
 const LINKS = [
+  { href: "#impact", label: "Impact" },
   { href: "#problem", label: "The Problem" },
   { href: "#hardware", label: "Hardware" },
   { href: "#web3", label: "Blockchain Audit" },

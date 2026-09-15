@@ -1,4 +1,3 @@
-import HeroVisual from "../components/HeroVisual";
 import { Button, Eyebrow } from "../components/UI";
 
 const PROOF = [
@@ -59,13 +58,20 @@ export default function Hero() {
           </dl>
         </div>
 
-        {/* product illustration */}
+        {/* product visual */}
         <div className="relative">
-          <div className="rounded-2xl border border-line/80 bg-gradient-to-br from-panel-2/70 to-canvas-2/70 p-3 shadow-2xl shadow-black/50 sm:p-5">
-            <HeroVisual />
-          </div>
-          {/* The diagram's own labels are sub-legible on a phone, so the chain
-              of events is restated in real type below it. */}
+          <figure className="overflow-hidden rounded-2xl border border-line bg-panel shadow-lift">
+            <img
+              src="/media/node-mounted.webp"
+              alt="The CNG-Protect edge node clamped to a vehicle CNG fuel tank in a pickup bed, its status LEDs lit and braided cable runs leading away to the fuel cut-off."
+              width="988"
+              height="522"
+              fetchPriority="high"
+              className="block w-full"
+            />
+          </figure>
+          {/* The node acts locally; the chain of events is spelled out in real
+              type so the point survives on a phone. */}
           <ul className="mt-3 grid grid-cols-3 gap-2 sm:hidden">
             {[
               ["Sense", "NDIR optical"],
@@ -82,7 +88,7 @@ export default function Hero() {
             ))}
           </ul>
           <p className="mt-3 hidden text-center font-mono text-[10.5px] tracking-wide text-muted sm:block">
-            EDGE NODE · CYLINDER BAY · SIGNED UPLINK
+            EDGE NODE ON THE CYLINDER BAY · DESIGN VISUALISATION
           </p>
         </div>
       </div>

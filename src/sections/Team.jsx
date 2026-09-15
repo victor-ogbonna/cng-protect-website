@@ -15,9 +15,9 @@ const TEAM = [
   },
   {
     name: "Theophilus Edafe",
-    role: "CTO",
+    role: "CTO · Mechanical Engineer",
     photo: "/media/team-theophilus.webp",
-    body: "Owns the signing pipeline, the blockchain integration and the insurance API.",
+    body: "Mechanical engineer working across CAD and embedded systems — owns the enclosure design, the sensor mounting and the firmware it runs.",
   },
 ];
 

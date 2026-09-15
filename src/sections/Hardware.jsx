@@ -142,33 +142,32 @@ export default function Hardware() {
       <div className="mt-5 grid gap-5 lg:grid-cols-[1.45fr_1fr]">
         <figure className="overflow-hidden rounded-xl border border-line bg-panel shadow-card">
           <img
-            src="/media/enclosure-concept.webp"
-            alt="Design concept for the CNG-Protect edge node: a clear-lid, gasketed enclosure holding the controller board, with three external antennas and sealed cable glands."
+            src="/media/node-closeup.webp"
+            alt="Close view of the CNG-Protect edge node: a ruggedised sealed housing with finned intakes, a status LED array and armoured cable runs leaving the right-hand side."
             loading="lazy"
-            width="953"
-            height="475"
+            width="900"
+            height="832"
             className="block w-full"
           />
           <figcaption className="border-t border-line px-4 py-3.5 sm:px-5">
             <span className="font-mono text-[10px] tracking-[0.14em] text-data uppercase">
-              Enclosure · design concept
+              The node · sealed housing
             </span>
             <p className="mt-1.5 text-[0.88rem] leading-relaxed text-muted">
-              Gasketed lid, sealed glands and external antennas — the packaging the pilot units are
-              being built to. A visualisation of the target build, not a photograph of a finished
-              unit.
+              Finned intakes for the NDIR sample path, a status array readable at a glance, and
+              armoured runs out to the cut-off relay. Design visualisation of the pilot build.
             </p>
           </figcaption>
         </figure>
 
-        <figure className="flex flex-col overflow-hidden rounded-xl border border-line bg-panel shadow-card">
+        <figure className="flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-panel shadow-card">
           <img
             src="/media/cylinder-in-boot.webp"
             alt="A CNG cylinder strapped into the boot of a hatchback — the typical aftermarket conversion, and where the node mounts."
             loading="lazy"
             width="318"
             height="159"
-            className="block h-44 w-full flex-1 object-cover lg:h-auto lg:min-h-44"
+            className="block aspect-[2/1] w-full object-cover"
           />
           <figcaption className="border-t border-line px-4 py-3.5 sm:px-5">
             <span className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">

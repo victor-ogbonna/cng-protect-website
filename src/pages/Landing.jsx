@@ -1,5 +1,6 @@
 import Navbar from "../sections/Navbar";
 import Hero from "../sections/Hero";
+import Sdg from "../sections/Sdg";
 import Problem from "../sections/Problem";
 import Hardware from "../sections/Hardware";
 import Web3 from "../sections/Web3";
@@ -13,13 +14,14 @@ export default function Landing() {
     <>
       <a
         href="#problem"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-lg focus:bg-warn focus:px-4 focus:py-2 focus:font-semibold focus:text-canvas"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:font-semibold focus:text-on-brand"
       >
         Skip to content
       </a>
       <Navbar />
       <main>
         <Hero />
+        <Sdg />
         <Problem />
         <Hardware />
         <Web3 />

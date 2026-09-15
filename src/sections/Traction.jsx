@@ -1,4 +1,5 @@
-import { Card, Eyebrow, Section, SectionHeading } from "../components/UI";
+import { PRESS, PROOF_LINK } from "../data/press";
+import { Button, Card, Eyebrow, Section, SectionHeading } from "../components/UI";
 
 const METRICS = [
   {
@@ -79,6 +80,19 @@ export default function Traction() {
             10 ventures on the SEVCP Incubation Track — the programme the South East Development
             Commission runs with Ventures Platform, Ubulu Africa, Cascador, Rise and MTN.
           </p>
+          <Button
+            href={PROOF_LINK.url}
+            target="_blank"
+            rel="noreferrer noopener"
+            size="md"
+            className="mt-6"
+          >
+            See CNG-Protect on the published winners list
+            <svg viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M7.5 4.5h8v8M15.5 4.5 5 15" />
+            </svg>
+          </Button>
+
           <dl className="mt-7 grid gap-4 border-t border-line pt-6 sm:grid-cols-3">
             {[
               ["Programme", "SEVCP Incubation"],
@@ -109,21 +123,71 @@ export default function Traction() {
         </figure>
       </Card>
 
-      <div className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 rounded-xl border border-line bg-panel-2 px-6 py-5 text-center">
-        <span className="font-mono text-[10px] tracking-[0.16em] text-faint uppercase">
-          Ecosystem
-        </span>
-        {[
-          "South East Development Commission",
-          "Ventures Platform",
-          "Lion Science Park, UNN",
-          "Ogbontor Engineering",
-        ].map((n) => (
-          <span key={n} className="text-[0.88rem] font-medium text-muted">
-            {n}
+      {/* press */}
+      <Card hover={false} className="mt-5 p-6 sm:p-8">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+          <div>
+            <Eyebrow tone="data">In the press</Eyebrow>
+            <h3 className="mt-4 text-xl font-bold sm:text-2xl">
+              The selection was reported nationally.
+            </h3>
+          </div>
+          <p className="max-w-md text-[0.88rem] leading-relaxed text-muted">
+            Coverage of the SEVCP winners announcement, 29 May 2026. The first two print our name
+            in the published list — click either one rather than taking ours.
+          </p>
+        </div>
+
+        <ul className="mt-6 grid gap-2.5 border-t border-line pt-6 sm:grid-cols-2 lg:grid-cols-3">
+          {PRESS.map((p) => (
+            <li key={p.url}>
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group flex h-full flex-col gap-1.5 rounded-lg border border-line bg-panel-2 p-3.5 transition-colors hover:border-brand/45 hover:bg-brand-tint"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="text-[0.88rem] font-semibold text-ink">{p.outlet}</span>
+                  {p.namesUs && (
+                    <span className="rounded border border-brand/30 bg-brand-tint px-1.5 py-0.5 font-mono text-[9px] tracking-[0.1em] text-brand uppercase">
+                      names us
+                    </span>
+                  )}
+                  <svg
+                    viewBox="0 0 20 20"
+                    className="ml-auto size-3.5 shrink-0 text-faint transition-colors group-hover:text-brand"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7.5 4.5h8v8M15.5 4.5 5 15" />
+                  </svg>
+                </span>
+                <span className="text-[0.8rem] leading-snug text-muted">{p.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-line pt-5">
+          <span className="font-mono text-[10px] tracking-[0.16em] text-faint uppercase">
+            Ecosystem
           </span>
-        ))}
-      </div>
+          {[
+            "South East Development Commission",
+            "Ventures Platform",
+            "Lion Science Park, UNN",
+            "Ogbontor Engineering Enterprise",
+          ].map((n) => (
+            <span key={n} className="text-[0.85rem] font-medium text-muted">
+              {n}
+            </span>
+          ))}
+        </div>
+      </Card>
     </Section>
   );
 }

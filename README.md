@@ -77,8 +77,16 @@ instrumentation (specs, hashes, telemetry).
 
 ## Things you will want to change
 
-- **Hero render** — `HeroVisual.jsx` is a hand-built SVG technical illustration.
-  Replace it with a 3D product render when one exists.
+- **Product renders** — `node-mounted.webp` (hero) and `node-closeup.webp`
+  (hardware) are visualisations, captioned as such. Swap in photographs of an
+  assembled pilot unit when one exists and drop the "design visualisation"
+  labels. `HeroVisual.jsx` is the SVG the hero used before and is still in the
+  repo if you want it back.
+- **The exploded diagram** (`BoardDiagram.jsx`) is still hand-drawn SVG. There
+  is a generation prompt for replacing it in `docs/board-render-prompt.md`.
+- **Press list** — `src/data/press.js`. `namesUs: true` means the article was
+  read and prints "CNG Protect" verbatim. Do not promote an entry to that flag
+  without re-reading the article.
 - **The SEDC certificate** proves *SEVCP Incubation Track — Selected Finalist,
   top 10*. It is **not** a $5,000 investment certificate, and the caption says
   what it actually says. The separate "$5,000 SAFE investment" metric card is

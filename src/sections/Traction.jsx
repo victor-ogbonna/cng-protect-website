@@ -182,7 +182,11 @@ export default function Traction() {
             "Lion Science Park, UNN",
             "Ogbontor Engineering Enterprise",
           ].map((n) => (
-            <span key={n} className="text-[0.85rem] font-medium text-muted">
+            <span key={n} className="flex items-baseline gap-1.5 text-[0.85rem] font-medium text-muted">
+              {/* Oversized full stop as a bullet; aria-hidden so it is not read out. */}
+              <span aria-hidden="true" className="text-xl leading-none font-extrabold text-brand">
+                .
+              </span>
               {n}
             </span>
           ))}

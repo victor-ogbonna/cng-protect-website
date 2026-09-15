@@ -1,6 +1,8 @@
+// No whitespace-nowrap: a long label (the press proof button) would set a
+// min-content width wider than a 320px phone and force the page to scroll.
 const BASE =
-  "inline-flex items-center justify-center gap-2 rounded-lg font-semibold tracking-tight " +
-  "transition-all duration-200 active:translate-y-px whitespace-nowrap";
+  "inline-flex items-center justify-center gap-2 rounded-lg text-center font-semibold " +
+  "tracking-tight transition-all duration-200 active:translate-y-px";
 
 const SIZES = {
   sm: "px-4 py-2 text-sm",

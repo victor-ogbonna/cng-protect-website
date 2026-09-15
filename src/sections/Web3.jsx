@@ -1,27 +1,11 @@
-import DashboardMockup from "../components/DashboardMockup";
+import { IconSense, IconSettle, IconSign, IconStream } from "../components/Icons";
 import { Button, Eyebrow } from "../components/UI";
 
 const CHAIN = [
-  {
-    step: "01",
-    title: "Sense",
-    body: "The NDIR sensor and cut-off relay produce a raw safety event at the cylinder bay.",
-  },
-  {
-    step: "02",
-    title: "Sign",
-    body: "An ATECC608 secure element signs the payload with an Ed25519 key that never leaves its tamper-resistant silicon.",
-  },
-  {
-    step: "03",
-    title: "Stream",
-    body: "The signed packet leaves over 4G. A forged or edited reading fails verification, so the operator cannot rewrite history.",
-  },
-  {
-    step: "04",
-    title: "Settle",
-    body: "Attestations land on a purpose-built appchain — an append-only record any underwriter can audit without trusting us.",
-  },
+  { step: "01", Icon: IconSense, title: "Sense", body: "NDIR optics read the bay. No guesswork." },
+  { step: "02", Icon: IconSign, title: "Sign", body: "An ATECC608 signs it. The key never leaves the chip." },
+  { step: "03", Icon: IconStream, title: "Stream", body: "Out over 4G. Edit it and verification fails." },
+  { step: "04", Icon: IconSettle, title: "Settle", body: "Append-only on chain. Audit without trusting us." },
 ];
 
 const PRODUCTS = [
@@ -30,7 +14,7 @@ const PRODUCTS = [
     price: "Per vehicle",
     unit: "annual licence",
     title: "Safety SaaS dashboard",
-    body: "Live methane, temperature and cut-off state across every node. Tamper and alarm alerts by SMS and push. Exportable, signature-verified incident history for regulators and courts.",
+    body: "Live methane, temperature and cut-off state per node. Tamper and alarm alerts. Signature-verified incident export for regulators and courts.",
     tone: "cyan",
     bullets: ["Live fleet telemetry", "Tamper + alarm alerts", "Verified incident export"],
   },
@@ -39,7 +23,7 @@ const PRODUCTS = [
     price: "API",
     unit: "usage-based",
     title: "Insurance risk API",
-    body: "Query per-vehicle safety history straight from chain-anchored attestations. Price CNG policies on observed behaviour instead of refusing the class outright, and re-rate monthly.",
+    body: "Per-vehicle safety history from chain-anchored proofs. Price on observed behaviour instead of refusing the class. Re-rate monthly.",
     tone: "orange",
     bullets: ["Per-vehicle risk score", "Chain-anchored proofs", "Dynamic re-rating"],
   },
@@ -63,30 +47,28 @@ export default function Web3() {
             Solving the Oracle Problem with Edge-Signed Telemetry.
           </h2>
           <p className="mt-5 text-pretty text-[1.05rem] leading-relaxed text-muted">
-            An insurer's real question is not "what does the dashboard say" — it is "who could have
-            edited this". So the hardware signs each safety payload before it ever touches a
-            network, and the signature is what gets audited.
+            An insurer's question is never "what does the dashboard say". It is "who could have
+            edited this". So the hardware signs before anything touches a network.
           </p>
         </div>
 
         {/* pipeline */}
-        <ol className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {CHAIN.map((c, i) => (
+        <ol className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {CHAIN.map(({ step, Icon, title, body }) => (
             <li
-              key={c.step}
-              className="relative rounded-xl border border-line bg-canvas-2/70 p-5 transition-colors hover:border-data/35"
+              key={step}
+              className="group rounded-xl border border-line bg-panel p-5 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-data/40 hover:shadow-lift"
             >
-              <div className="flex items-center gap-2.5">
-                <span className="font-mono text-[11px] font-bold text-data">{c.step}</span>
-                <h3 className="text-[1.05rem] font-semibold">{c.title}</h3>
+              <div className="flex items-center justify-between">
+                <span className="grid size-10 place-items-center rounded-lg bg-data-tint text-data transition-colors group-hover:bg-data group-hover:text-on-brand">
+                  <Icon className="size-[22px]" />
+                </span>
+                <span className="font-mono text-[11px] font-bold text-line-strong transition-colors group-hover:text-data">
+                  {step}
+                </span>
               </div>
-              <p className="mt-3 text-[0.9rem] leading-relaxed text-muted">{c.body}</p>
-              {i < CHAIN.length - 1 && (
-                <span
-                  aria-hidden="true"
-                  className="absolute top-1/2 -right-4 z-10 hidden size-2 -translate-y-1/2 rotate-45 border-t border-r border-data/50 lg:block"
-                />
-              )}
+              <h3 className="mt-4 text-[1.05rem] font-semibold">{title}</h3>
+              <p className="mt-2 text-[0.85rem] leading-relaxed text-muted">{body}</p>
             </li>
           ))}
         </ol>
@@ -94,9 +76,19 @@ export default function Web3() {
         {/* live mockup */}
         <div className="mt-16 grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-center">
           <div className="min-w-0">
-            <DashboardMockup />
+            {/* The shipped console, not a mockup. */}
+            <figure className="overflow-hidden rounded-2xl border border-line-strong bg-panel-2 shadow-lift">
+              <img
+                src="/media/app-live-dashboard.webp"
+                alt="The CNG-Protect live system monitor: a node reporting SYSTEM SAFE with gas concentration at 655 ppm and temperature at 30.2 degrees, a 0 to 2000 ppm gas gauge banded safe, caution and danger, and a temperature history chart with a 40 degree limit line."
+                loading="lazy"
+                width="1400"
+                height="900"
+                className="block w-full"
+              />
+            </figure>
             <p className="mt-3 text-center font-mono text-[10.5px] tracking-wide text-muted">
-              FLEET CONSOLE · SAMPLE DATA · SELECT A VEHICLE
+              LIVE SYSTEM MONITOR · RUNNING BUILD
             </p>
           </div>
 
@@ -140,8 +132,7 @@ export default function Web3() {
 
             <div className="flex flex-wrap items-center gap-3 rounded-xl border border-line bg-panel-2/40 p-5">
               <p className="flex-1 text-[0.9rem] leading-relaxed text-muted">
-                Underwriting CNG risk, or running a conversion centre? We share the full data schema
-                and signing spec.
+                Underwriting CNG risk? We share the full schema and signing spec.
               </p>
               <Button href="#pilot" variant="outline" size="sm">
                 Get the spec
@@ -158,15 +149,14 @@ export default function Web3() {
               Every reading already lands on chain.
             </h3>
             <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">
-              This is the build, not a diagram. Each safe interval writes a signed attestation; a
-              gas concentration over threshold writes a hazard record instead. Both carry the
-              reading that produced them and a transaction hash anyone can resolve.
+              The build, not a diagram. Safe intervals write attestations. Breaches write hazard
+              records. Both carry a hash anyone can resolve.
             </p>
             <ul className="mt-6 space-y-3">
               {[
-                ["Safe interval", "Signed attestation with gas and temperature at the time of writing."],
-                ["Hazard event", "Written the moment concentration crosses the threshold — 4 095 ppm in the log below."],
-                ["Every entry", "Carries its own transaction hash, so an underwriter verifies it without asking us."],
+                ["Safe interval", "Signed attestation with gas and temperature."],
+                ["Hazard event", "Written the moment the threshold is crossed."],
+                ["Every entry", "Its own hash. Verified without asking us."],
               ].map(([k, v]) => (
                 <li key={k} className="flex gap-3">
                   <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand" />
@@ -195,39 +185,53 @@ export default function Web3() {
           </figure>
         </div>
 
-        {/* companion mobile app */}
-        <div className="mt-16 grid gap-10 rounded-2xl border border-line bg-canvas-2/60 p-6 sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center">
+        {/* on every screen */}
+        <div className="mt-16 grid gap-8 rounded-2xl border border-line bg-canvas-2/60 p-6 sm:p-9 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
-            <Eyebrow tone="brand">Driver app · shipping today</Eyebrow>
-            <h3 className="mt-5 text-2xl font-bold">The driver sees it before the fire does.</h3>
-            <p className="mt-4 max-w-xl text-[0.95rem] leading-relaxed text-muted">
-              The node acts on its own, but the driver and the depot still get told. Live gas
-              readings, cabin temperature, per-vehicle history and node health — the same signed
-              stream the underwriter audits, rendered for the person in the seat.
+            <Eyebrow tone="brand">Shipping today</Eyebrow>
+            <h3 className="mt-5 text-2xl font-bold">In the cab. At the depot. On chain.</h3>
+            <p className="mt-4 max-w-md text-[0.95rem] leading-relaxed text-muted">
+              The node acts alone. Everyone else just gets told.
             </p>
-            <ul className="mt-6 grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
+            <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
               {[
-                "Live methane gauge + SAFE / ELEVATED state",
-                "Push alarm the moment a threshold is crossed",
-                "Multi-vehicle device list for small depots",
-                "History trace stored against the on-chain record",
-              ].map((t) => (
-                <li key={t} className="flex gap-2.5 text-[0.9rem] leading-snug text-body">
-                  <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand" />
+                [IconSense, "Live gauge, SAFE or ELEVATED"],
+                [IconStream, "Push alarm on threshold"],
+                [IconSettle, "History against the chain record"],
+                [IconSign, "Wallet + oracle in settings"],
+              ].map(([Icon, t]) => (
+                <li key={t} className="flex items-center gap-2.5 text-[0.88rem] leading-snug text-body">
+                  <span className="grid size-7 shrink-0 place-items-center rounded-md bg-brand-tint text-brand">
+                    <Icon className="size-4" />
+                  </span>
                   {t}
                 </li>
               ))}
             </ul>
+
+            <figure className="mt-7 max-w-sm">
+              <img
+                src="/media/app-settings.webp"
+                alt="The CNG-Protect settings screen: oracle wallet funded, dark mode and voice notification toggles, the Solana wallet address, and oracle statistics counting minted tokens and hazard records."
+                loading="lazy"
+                width="370"
+                height="238"
+                className="block w-full rounded-lg border border-line-strong"
+              />
+              <figcaption className="mt-2 font-mono text-[10px] tracking-[0.12em] text-faint uppercase">
+                Settings &amp; integrations
+              </figcaption>
+            </figure>
           </div>
 
           <div className="flex justify-center gap-4 sm:gap-6">
             {[
-              ["/media/app-dashboard.webp", "CNG-Protect driver app showing a SAFE state with a 637 ppm methane gauge and cabin temperature trace.", "z-10"],
+              ["/media/app-dashboard.webp", "CNG-Protect driver app showing a SAFE state with a methane gauge and cabin temperature trace.", "z-10"],
               ["/media/app-devices.webp", "CNG-Protect app device list showing one vehicle online and one offline.", "hidden sm:block opacity-80 scale-95"],
             ].map(([src, alt, extra]) => (
               <div
                 key={src}
-                className={`relative w-36 shrink-0 overflow-hidden rounded-[1.75rem] border-4 border-panel-2 bg-black shadow-2xl shadow-black/60 sm:w-44 ${extra}`}
+                className={`relative w-36 shrink-0 overflow-hidden rounded-[1.75rem] border-4 border-panel-2 bg-black shadow-lift sm:w-44 ${extra}`}
               >
                 <img src={src} alt={alt} loading="lazy" width="620" height="1421" className="block w-full" />
               </div>

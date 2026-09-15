@@ -57,16 +57,15 @@ export default function PilotCTA() {
             Put a signed safety record on your fleet.
           </h2>
           <p className="mt-5 text-pretty text-[1.05rem] leading-relaxed text-muted">
-            We are fitting a 10-vehicle commercial transit pilot and onboarding conversion centres
-            as install partners. Tell us which side of the problem you sit on and we will send the
-            architecture brief and pilot terms.
+            A 10-vehicle transit pilot is being fitted now. Tell us which side of the problem you
+            sit on and we will send the brief and terms.
           </p>
 
           <ul className="mt-8 space-y-3.5">
             {[
-              ["Fleets", "Nodes fitted and monitored on your route, with incident export."],
-              ["Conversion centres", "Install training and a safety-certified upsell per conversion."],
-              ["Underwriters", "Sandbox access to the risk API and the signing spec."],
+              ["Fleets", "Nodes fitted and monitored on your route."],
+              ["Conversion centres", "Install training and a certified upsell."],
+              ["Underwriters", "Sandbox access to the risk API."],
             ].map(([who, what]) => (
               <li key={who} className="flex gap-3.5">
                 <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-warn" />

@@ -6,7 +6,7 @@ const POINTS = [
     tone: "text-data",
     ring: "border-data/25 bg-data-tint",
     title: "The Fuel Crisis",
-    body: "Petrol prices are surging and commercial transit is converting to CNG at speed — it is the only route to a viable cost-per-kilometre for buses, keke and haulage.",
+    body: "Petrol is unaffordable. Commercial transit is converting to CNG at speed — it is the only viable cost per kilometre left.",
     stat: "≈ 70%",
     statLabel: "cheaper per km than petrol",
   },
@@ -15,7 +15,7 @@ const POINTS = [
     tone: "text-danger",
     ring: "border-danger/25 bg-danger-tint",
     title: "The Danger",
-    body: "Substandard conversions and uncertified cylinders lead to catastrophic, fatal explosions. The Kaduna bus blast happened this year, Badagry before it — and those are just the ones that reached national news.",
+    body: "Substandard conversions kill. Kaduna this year, Badagry before it — and those are only the ones that made national news.",
     stat: "Fatal",
     statLabel: "Kaduna this year, Badagry before it",
   },
@@ -24,7 +24,7 @@ const POINTS = [
     tone: "text-body",
     ring: "border-line-strong bg-panel-2",
     title: "The Liability",
-    body: "Fleet operators and insurers face total write-offs and unquantifiable risk. Without verifiable safety data there is no way to price a CNG policy — so most simply refuse to write one.",
+    body: "No verifiable safety data means no way to price a CNG policy. So most insurers refuse to write one at all.",
     stat: "Unpriceable",
     statLabel: "risk without telemetry",
   },
@@ -37,7 +37,7 @@ export default function Problem() {
         eyebrow="The bottleneck"
         tone="danger"
         title="Cost is pushing fleets to CNG. Fear is holding them back."
-        lede="Nigeria is converting its commercial fleet faster than it can certify it. The gap between the two is measured in write-offs and lives — and it is widening this year, not last."
+        lede="Nigeria is converting faster than it can certify. The gap is measured in write-offs and lives."
       />
 
       {/* evidence — the Kaduna bus leads, because the copy names it and it is
@@ -130,9 +130,8 @@ export default function Problem() {
         ))}
       </div>
 
-      <p className="mx-auto mt-10 max-w-3xl text-center text-[0.95rem] leading-relaxed text-muted">
-        Standard vehicle electronics do not watch the cylinder bay. CNG-Protect closes that gap —
-        and then proves, cryptographically, that it was closed.
+      <p className="mx-auto mt-10 max-w-2xl text-center text-[1.05rem] leading-relaxed font-medium text-ink">
+        Nothing in the vehicle watches the cylinder bay. We do — and we prove it.
       </p>
     </Section>
   );

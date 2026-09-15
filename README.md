@@ -40,6 +40,8 @@ src/components/
   BoardDiagram.jsx          exploded view of the 4-layer node stack
   DashboardMockup.jsx       live fleet console mockup (selectable vehicles, rolling ledger)
   ThemeToggle.jsx           light/dark switch, remembered per browser
+  Icons.jsx                 the shared stroke icon set (24x24, currentColor)
+  PressLogo.jsx             outlet logo, falling back to a typographic plate
 src/data/boardLayers.js     node layer stack, shared by diagram + legend
 public/media/               logo, headshots, certificate, photography, screenshots
 ```
@@ -91,6 +93,11 @@ instrumentation (specs, hashes, telemetry).
 - **Press list** — `src/data/press.js`. `namesUs: true` means the article was
   read and prints "CNG Protect" verbatim. Do not promote an entry to that flag
   without re-reading the article.
+- **Press logos** are typographic plates, because outlet logos are third-party
+  brand assets. To use the real thing, drop an SVG at
+  `public/media/press/<slug>.svg` using the `slug` from `press.js`;
+  `PressLogo.jsx` picks it up and falls back to the plate if the file is
+  missing. No code change needed.
 - **The SEDC certificate** proves *SEVCP Incubation Track — Selected Finalist,
   top 10*. It is **not** a $5,000 investment certificate, and the caption says
   what it actually says. The separate "$5,000 SAFE investment" metric card is

@@ -1,79 +1,51 @@
+import {
+  IconCity,
+  IconClimate,
+  IconEnergy,
+  IconHealth,
+  IconIndustry,
+} from "../components/Icons";
 import { Eyebrow } from "../components/UI";
 
-/**
- * Where the product actually touches the UN goals. Each line names the
- * mechanism, not the aspiration — an underwriter or a grant reviewer can check
- * every one of these against the hardware.
- */
+/** One line each. The mechanism, not the aspiration. */
 const GOALS = [
-  {
-    n: 3,
-    title: "Good Health & Well-being",
-    body: "A leak caught in the bay is a burn ward visit that never happens. The fail-safe exists to keep drivers, passengers and filling-station staff alive.",
-  },
-  {
-    n: 7,
-    title: "Affordable & Clean Energy",
-    body: "CNG is the cheaper, lower-carbon fuel — but only reaches scale if it stops killing people. Safety is the gate on the energy transition, not a bolt-on.",
-  },
-  {
-    n: 9,
-    title: "Industry, Innovation & Infrastructure",
-    body: "Locally designed edge hardware and an auditable data layer, built in Enugu rather than imported, with the IP filed in Nigeria.",
-  },
-  {
-    n: 11,
-    title: "Sustainable Cities & Communities",
-    body: "The vehicles we fit are buses, keke and haulage — the transport poorer commuters actually depend on, made safer at the fleet level.",
-  },
-  {
-    n: 13,
-    title: "Climate Action",
-    body: "Every converted vehicle cuts tailpipe carbon against petrol, and every prevented leak stops raw methane venting to atmosphere.",
-  },
+  { n: 3, Icon: IconHealth, title: "Good Health & Well-being", line: "A leak caught in the bay is a burn ward visit that never happens." },
+  { n: 7, Icon: IconEnergy, title: "Affordable & Clean Energy", line: "Safety is the gate on Nigeria's cheapest fuel — not a bolt-on." },
+  { n: 9, Icon: IconIndustry, title: "Industry & Innovation", line: "Edge hardware designed in Enugu, with the IP filed in Nigeria." },
+  { n: 11, Icon: IconCity, title: "Sustainable Cities", line: "Buses, keke and haulage — the transport people actually ride." },
+  { n: 13, Icon: IconClimate, title: "Climate Action", line: "Every prevented leak stops raw methane venting to atmosphere." },
 ];
 
 export default function Sdg() {
   return (
-    <section
-      id="impact"
-      className="border-y border-line bg-canvas-2 px-5 py-16 sm:px-8 sm:py-20"
-    >
+    <section id="impact" className="border-y border-line bg-canvas-2 px-5 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto w-full max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[1fr_1.9fr] lg:items-start lg:gap-12">
-          <div>
-            <Eyebrow tone="brand">Impact</Eyebrow>
-            <h2 className="mt-5 text-2xl leading-[1.15] font-bold sm:text-3xl">
-              Five of the UN Sustainable Development Goals, addressed by the same box.
-            </h2>
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">
-              Safety is the bottleneck on Nigeria's cleanest available fuel. Removing it moves
-              health, energy, industry, transport and emissions at once — which is why CNG-Protect
-              reads as climate infrastructure, not just a sensor.
-            </p>
-          </div>
-
-          <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {GOALS.map((g) => (
-              <li
-                key={g.n}
-                className="flex gap-3.5 rounded-xl border border-line bg-panel p-4 shadow-card transition-colors hover:border-brand/40"
-              >
-                <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-brand font-mono text-[13px] font-bold text-on-brand">
-                  {g.n}
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-[0.9rem] leading-snug font-semibold text-ink">
-                    {g.title}
-                  </span>
-                  <span className="mt-1.5 block text-[0.82rem] leading-relaxed text-muted">
-                    {g.body}
-                  </span>
-                </span>
-              </li>
-            ))}
-          </ul>
+        <div className="max-w-2xl">
+          <Eyebrow tone="brand">Impact</Eyebrow>
+          <h2 className="mt-5 text-2xl leading-[1.15] font-bold sm:text-3xl">
+            Five UN goals. One box.
+          </h2>
         </div>
+
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {GOALS.map(({ n, Icon, title, line }) => (
+            <li
+              key={n}
+              className="group rounded-xl border border-line bg-panel p-5 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-lift"
+            >
+              <div className="flex items-center justify-between">
+                <span className="grid size-10 place-items-center rounded-lg bg-brand-tint text-brand transition-colors group-hover:bg-brand group-hover:text-on-brand">
+                  <Icon className="size-[22px]" />
+                </span>
+                <span className="font-mono text-2xl leading-none font-bold text-line-strong transition-colors group-hover:text-brand">
+                  {n}
+                </span>
+              </div>
+              <h3 className="mt-4 text-[0.95rem] leading-snug font-semibold">{title}</h3>
+              <p className="mt-2 text-[0.82rem] leading-relaxed text-muted">{line}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

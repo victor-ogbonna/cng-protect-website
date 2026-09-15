@@ -1,3 +1,4 @@
+import PressLogo from "../components/PressLogo";
 import { PRESS, PROOF_LINK } from "../data/press";
 import { Button, Card, Eyebrow, Section, SectionHeading } from "../components/UI";
 
@@ -45,7 +46,7 @@ export default function Traction() {
         eyebrow="Traction & validation"
         tone="brand"
         title="Built for African Transit. Backed by Institutional Capital."
-        lede="We are not pitching a concept. The IP is filed, the capital is in, the install partners are queued and the pilot fleet is being fitted."
+        lede="Not a concept. The IP is filed, the capital is in, the partners are queued, the fleet is being fitted."
       />
 
       <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -76,9 +77,8 @@ export default function Traction() {
             Selected by the South East Venture Capital Program.
           </h3>
           <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">
-            CNG-Protect came through the inaugural South East Pitch Competition as one of the top
-            10 ventures on the SEVCP Incubation Track — the programme the South East Development
-            Commission runs with Ventures Platform, Ubulu Africa, Cascador, Rise and MTN.
+            Top 10 of the inaugural South East Pitch Competition, on the SEVCP Incubation Track —
+            run by the SEDC with Ventures Platform, Ubulu Africa, Cascador, Rise and MTN.
           </p>
           <Button
             href={PROOF_LINK.url}
@@ -128,45 +128,45 @@ export default function Traction() {
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
           <div>
             <Eyebrow tone="data">In the press</Eyebrow>
-            <h3 className="mt-4 text-xl font-bold sm:text-2xl">
-              The selection was reported nationally.
-            </h3>
+            <h3 className="mt-4 text-xl font-bold sm:text-2xl">Reported nationally.</h3>
           </div>
-          <p className="max-w-md text-[0.88rem] leading-relaxed text-muted">
-            Coverage of the SEVCP winners announcement, 29 May 2026. The first two print our name
-            in the published list — click either one rather than taking ours.
+          <p className="max-w-xs text-[0.88rem] leading-relaxed text-muted">
+            29 May 2026. Two print our name in the list — click them, not us.
           </p>
         </div>
 
-        <ul className="mt-6 grid gap-2.5 border-t border-line pt-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-6 grid gap-2.5 border-t border-line pt-6 sm:grid-cols-2 lg:grid-cols-4">
           {PRESS.map((p) => (
             <li key={p.url}>
               <a
                 href={p.url}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="group flex h-full flex-col gap-1.5 rounded-lg border border-line bg-panel-2 p-3.5 transition-colors hover:border-brand/45 hover:bg-brand-tint"
+                className="group flex items-center gap-3 rounded-lg border border-line bg-panel-2 p-3 transition-colors hover:border-brand/45 hover:bg-brand-tint"
               >
-                <span className="flex items-center gap-2">
-                  <span className="text-[0.88rem] font-semibold text-ink">{p.outlet}</span>
+                <PressLogo item={p} />
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-[0.9rem] font-semibold text-ink">
+                    {p.outlet}
+                  </span>
                   {p.namesUs && (
-                    <span className="rounded border border-brand/30 bg-brand-tint px-1.5 py-0.5 font-mono text-[9px] tracking-[0.1em] text-brand uppercase">
+                    <span className="mt-0.5 inline-block rounded border border-brand/30 bg-brand-tint px-1.5 py-0.5 font-mono text-[9px] tracking-[0.1em] text-brand uppercase">
                       names us
                     </span>
                   )}
-                  <svg
-                    viewBox="0 0 20 20"
-                    className="ml-auto size-3.5 shrink-0 text-faint transition-colors group-hover:text-brand"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M7.5 4.5h8v8M15.5 4.5 5 15" />
-                  </svg>
                 </span>
-                <span className="text-[0.8rem] leading-snug text-muted">{p.title}</span>
+                <svg
+                  viewBox="0 0 20 20"
+                  className="size-3.5 shrink-0 text-faint transition-colors group-hover:text-brand"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7.5 4.5h8v8M15.5 4.5 5 15" />
+                </svg>
               </a>
             </li>
           ))}

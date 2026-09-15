@@ -7,7 +7,9 @@ const FOUNDER = {
   photo: "/media/team-victor.webp",
   linkedin: "https://www.linkedin.com/in/victor-ogbonna",
   credentials: [
-    ["B.Eng Mechatronic Engineering", "University of Nigeria, Nsukka"],
+    ["Full-stack embedded systems & robotics engineer", "Firmware to fail-safe"],
+    ["IoT–Blockchain developer", "Edge signing to on-chain settlement"],
+    ["Mechatronics engineer (in view)", "University of Nigeria, Nsukka"],
     ["Founder & CEO since 2018", "Ogbontor Engineering Enterprise"],
     ["Liaison Officer", "Nigerian Society of Engineers, UNN student branch"],
   ],
@@ -35,7 +37,7 @@ export default function Team() {
         eyebrow="Team"
         tone="brand"
         title="Engineers who have to drive on these roads too."
-        lede="Hardware, firmware, operations and chain — assembled out of Lion Science Park at the University of Nigeria, Nsukka."
+        lede="Hardware, firmware, operations and chain — out of Lion Science Park, UNN."
       />
 
       {/* founder */}
@@ -57,31 +59,24 @@ export default function Team() {
           </span>
           <h3 className="mt-3 text-2xl font-bold sm:text-[1.7rem]">{FOUNDER.name}</h3>
 
-          <div className="mt-5 space-y-4 text-[0.93rem] leading-relaxed text-body">
+          <div className="mt-5 space-y-3.5 text-[0.93rem] leading-relaxed text-body">
             <p>
-              A mechatronic engineer who came to CNG safety from under a vehicle rather than from a
-              spreadsheet. Before finishing his B.Eng at the University of Nigeria, Nsukka, he spent
-              sixteen months apprenticed at a mechanic's workshop in Enugu State, diagnosing and
-              rebuilding five engines by hand. That is where the gap this company exists to close
-              stopped being an abstraction.
+              He came to CNG safety from under a vehicle, not from a spreadsheet. Sixteen months
+              apprenticed at a mechanic's workshop in Enugu State, five engines rebuilt by hand —
+              then the B.Eng at Nsukka.
             </p>
             <p>
-              He founded Ogbontor Engineering Enterprise in 2018 and has run it since — building
-              hardware, and the technical community around it. He ran a hardware and
-              embedded-systems bootcamp for students at UNN in 2025, and is organising the
-              company's largest bootcamp and conference to date for November 2026.
+              Founded Ogbontor Engineering in 2018 and has run it since. Ran a hardware and
+              embedded-systems bootcamp at UNN in 2025; the company's largest conference lands
+              November 2026.
             </p>
             <p>
-              His engineering sits exactly where this product needs it: embedded systems, integrated
-              circuits and I<span className="align-super text-[0.7em]">2</span>C on one side,
-              automotive engineering and vehicle maintenance on the other. He sets the product
-              thesis, carries the fleet, regulator and underwriter relationships, and secured the
-              $5,000 SEDC investment that took CNG-Protect through the South East Venture Capital
-              Programme.
+              He sets the product thesis, carries the fleet, regulator and underwriter
+              relationships, and secured the $5,000 SEDC investment.
             </p>
           </div>
 
-          <dl className="mt-7 grid gap-4 border-t border-line pt-6 sm:grid-cols-3">
+          <dl className="mt-7 grid gap-4 border-t border-line pt-6 sm:grid-cols-2 xl:grid-cols-3">
             {FOUNDER.credentials.map(([k, v]) => (
               <div key={k}>
                 <dt className="text-[0.82rem] leading-snug font-semibold text-ink">{k}</dt>

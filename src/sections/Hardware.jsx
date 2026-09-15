@@ -5,7 +5,7 @@ const FEATURES = [
   {
     tone: "cyan",
     title: "Automotive-Grade NDIR Sensing",
-    body: "A Winsen MH-440D optical methane sensor reads gas by infrared absorption, not by a heated catalytic bead. It ignores exhaust hydrocarbons and humidity that make cheap MQ-series sensors cry wolf — and it does not drift out of calibration after a season in a Lagos boot.",
+    body: "Infrared absorption, not a heated bead. It ignores the exhaust fumes and humidity that make cheap sensors cry wolf, and it does not drift after a season in a Lagos boot.",
     specs: [
       ["Method", "NDIR optical"],
       ["Range", "0 – 100% LEL"],
@@ -21,7 +21,7 @@ const FEATURES = [
   {
     tone: "orange",
     title: "Zero-Latency Fail-Safe",
-    body: "An ESP32-S3 holds the alarm threshold in firmware, not in the cloud. On breach it actuates an electromechanical fuel cut-off relay in under 50 ms — starving the engine of gas before an ignition source ever meets the leak. No network, no server, no dependency.",
+    body: "The threshold lives in firmware, not the cloud. On breach the relay opens in under 50 ms and starves the engine before anything can ignite. No network required.",
     specs: [
       ["MCU", "ESP32-S3"],
       ["Actuation", "< 50 ms"],
@@ -36,7 +36,7 @@ const FEATURES = [
   {
     tone: "green",
     title: "Anti-Tamper IP65 Enclosure",
-    body: "A continuous microswitch loop runs the perimeter of the sealed casing. Break the seal to bypass the node and the loop opens, the vehicle enters safe shutdown, and the tamper event is signed and published on-chain. Safety you cannot quietly unplug before a sale.",
+    body: "Break the seal to bypass the node and the loop opens, the vehicle shuts down safe, and the tamper is signed on-chain. Safety you cannot quietly unplug.",
     specs: [
       ["Ingress", "IP65 sealed"],
       ["Tamper", "Continuous loop"],
@@ -63,8 +63,8 @@ export default function Hardware() {
       <SectionHeading
         eyebrow="Hardware architecture"
         tone="data"
-        title="An edge node engineered to work when nothing else does."
-        lede="No connectivity, no cloud round-trip, no user in the loop. The fail-safe is a physical circuit that decides locally in milliseconds."
+        title="An Edge Node engineered to work when nothing else does."
+        lede="No connectivity. No cloud round-trip. No user in the loop. A physical circuit that decides in milliseconds."
       />
 
       <div className="mt-14 grid gap-4 lg:grid-cols-3">
@@ -121,8 +121,7 @@ export default function Hardware() {
         <div className="order-1 lg:order-2">
           <h3 className="text-2xl font-bold">Inside the node</h3>
           <p className="mt-4 text-[0.95rem] leading-relaxed text-muted">
-            Four layers in a single sealed stack, top to bottom. Every one of them has a job
-            during a leak, and none of them needs a phone signal to do it.
+            Four layers, one sealed stack, top to bottom. Every one has a job during a leak.
           </p>
           <ol className="mt-7 space-y-4">
             {BOARD_LAYERS.map((l, i) => (
@@ -164,9 +163,8 @@ export default function Hardware() {
           </span>
           <h3 className="mt-3 text-xl font-bold">One sealed box, two jobs.</h3>
           <p className="mt-3 text-[0.9rem] leading-relaxed text-muted">
-            Finned intakes for the NDIR sample path, a status array readable at a glance from
-            outside the bay, and armoured runs out to the cut-off relay. Design visualisation of
-            the pilot build.
+            Finned intakes for the sample path, a status array readable from outside the bay,
+            armoured runs to the cut-off. Design visualisation of the pilot build.
           </p>
 
           <figure className="mt-6 border-t border-line pt-6">
@@ -183,8 +181,7 @@ export default function Hardware() {
                 Where it mounts
               </span>
               <p className="mt-1.5 text-[0.85rem] leading-relaxed text-muted">
-                The node clamps in the cylinder bay itself — the enclosed space a conversion leaves
-                unmonitored, and the only place a leak can be caught before it reaches the cabin.
+                In the bay itself — the one enclosed space a conversion leaves unwatched.
               </p>
             </figcaption>
           </figure>

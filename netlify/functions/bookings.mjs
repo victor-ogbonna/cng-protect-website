@@ -56,6 +56,16 @@ export default async (req, context) => {
     const res = await fetch(`https://api.netlify.com/api/v1${path}`, {
       headers: { authorization: `Bearer ${token}` },
     });
+    if (res.status === 401 || res.status === 403) {
+      // By far the likeliest cause, and otherwise an opaque failure.
+      throw new Error(
+        "NETLIFY_API_TOKEN was rejected — it has most likely expired. " +
+          "Create a new one under Netlify → User settings → Applications → " +
+          "Personal access tokens, update the environment variable, and redeploy. " +
+          "Bookings are unaffected: they are still arriving by email and are " +
+          "listed under Netlify → Forms.",
+      );
+    }
     if (!res.ok) throw new Error(`Netlify API ${res.status} on ${path}`);
     return res.json();
   };
@@ -78,6 +88,6 @@ export default async (req, context) => {
     }));
     return json(200, { bookings });
   } catch (err) {
-    return json(502, { error: `Could not read submissions: ${err.message}` });
+    return json(502, { error: err.message });
   }
 };

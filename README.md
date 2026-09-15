@@ -122,7 +122,7 @@ Set these in **Netlify → Site configuration → Environment variables**:
 | Variable | What it is |
 | --- | --- |
 | `ADMIN_PASSWORD` | the passphrase you type on `/admin` |
-| `NETLIFY_API_TOKEN` | a personal access token (Netlify → User settings → Applications) |
+| `NETLIFY_API_TOKEN` | a personal access token (Netlify → User settings → Applications). Give it a bounded expiry of about a year, not "no expiration" — it can read and modify every site on the account. When it lapses, `/admin` says so in plain words; email notifications and the Forms dashboard keep working regardless. |
 | `FORM_NAME` | optional, defaults to `pilot-access` |
 
 This is a single shared passphrase, not real user accounts — fine for a private

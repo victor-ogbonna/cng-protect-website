@@ -152,8 +152,8 @@ export default function Hardware() {
             src="/media/node-closeup.webp"
             alt="Close view of the CNG-Protect edge node: a ruggedised sealed housing with finned intakes, a status LED array and armoured cable runs leaving the right-hand side."
             loading="lazy"
-            width="900"
-            height="832"
+            width="1168"
+            height="768"
             className="h-64 w-full object-cover object-center sm:h-80 lg:absolute lg:inset-0 lg:h-full"
           />
         </figure>

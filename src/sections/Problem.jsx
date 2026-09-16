@@ -54,7 +54,7 @@ export default function Problem() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/35 to-transparent" />
           <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-            <span className="font-mono text-[10px] tracking-[0.14em] text-danger uppercase">
+            <span className="inline-flex items-center rounded bg-red-600 px-2 py-[3px] font-mono text-[10px] font-medium tracking-[0.12em] text-white uppercase shadow-sm shadow-black/40">
               Kaduna CNG bus explosion · earlier this year
             </span>
             <p className="mt-1.5 max-w-sm text-[0.95rem] leading-snug font-medium text-white">
@@ -75,7 +75,7 @@ export default function Problem() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
             <figcaption className="absolute inset-x-0 bottom-0 p-3.5">
-              <span className="font-mono text-[10px] tracking-[0.12em] text-danger uppercase">
+              <span className="inline-flex items-center rounded bg-red-600 px-2 py-[3px] font-mono text-[10px] font-medium tracking-[0.12em] text-white uppercase shadow-sm shadow-black/40">
                 Cylinder rupture · filling station
               </span>
               <p className="mt-0.5 text-[0.8rem] leading-snug text-white/85">
@@ -95,7 +95,7 @@ export default function Problem() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
             <figcaption className="absolute inset-x-0 bottom-0 p-3.5">
-              <span className="font-mono text-[10px] tracking-[0.12em] text-danger uppercase">
+              <span className="inline-flex items-center rounded bg-red-600 px-2 py-[3px] font-mono text-[10px] font-medium tracking-[0.12em] text-white uppercase shadow-sm shadow-black/40">
                 Edo State
               </span>
               <p className="mt-0.5 text-[0.8rem] leading-snug text-white/85">

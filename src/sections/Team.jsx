@@ -58,15 +58,11 @@ export default function Team() {
           </span>
           <h3 className="mt-3 text-2xl font-bold sm:text-[1.7rem]">{FOUNDER.name}</h3>
 
-          <div className="mt-5 space-y-3.5 text-[0.93rem] leading-relaxed text-body">
+          <div className="mt-5 text-[0.93rem] leading-relaxed text-body">
             <p>
-              He came to CNG safety from under a vehicle, not a spreadsheet — sixteen months
-              apprenticing at a mechanic's workshop in Enugu State before the B.Eng at Nsukka. He's
-              run Ogbontor Engineering, his own hardware and embedded-systems firm, since 2018.
-            </p>
-            <p>
-              He sets the product thesis, carries the fleet, regulator and underwriter
-              relationships, and secured the $5,000 SEDC investment.
+              Came to CNG safety from under a vehicle, not a spreadsheet — a mechanic's apprentice
+              in Enugu State before the B.Eng at Nsukka. Has run Ogbontor Engineering since 2018,
+              sets the product thesis, and secured the $5,000 SEDC investment.
             </p>
           </div>
 

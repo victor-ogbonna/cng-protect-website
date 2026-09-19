@@ -1,5 +1,4 @@
 import { IconBolt, IconSense, IconShield } from "../components/Icons";
-import SolutionFlow from "../components/SolutionFlow";
 import { Section, SectionHeading } from "../components/UI";
 
 const STEPS = [
@@ -58,10 +57,6 @@ export default function Solution() {
             </article>
           );
         })}
-      </div>
-
-      <div className="mt-5 rounded-2xl border border-line bg-panel p-6 shadow-card sm:p-9">
-        <SolutionFlow />
       </div>
 
       <p className="mx-auto mt-10 max-w-2xl text-center text-[1.05rem] leading-relaxed font-medium text-ink">

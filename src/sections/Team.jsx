@@ -11,7 +11,6 @@ const FOUNDER = {
     ["IoT–Blockchain developer", "Edge signing to on-chain settlement"],
     ["Mechatronics engineer (in view)", "University of Nigeria, Nsukka"],
     ["Founder & CEO since 2018", "Ogbontor Engineering Enterprise"],
-    ["Liaison Officer", "Nigerian Society of Engineers, UNN student branch"],
   ],
 };
 
@@ -61,14 +60,9 @@ export default function Team() {
 
           <div className="mt-5 space-y-3.5 text-[0.93rem] leading-relaxed text-body">
             <p>
-              He came to CNG safety from under a vehicle, not from a spreadsheet. Sixteen months
-              apprenticed at a mechanic's workshop in Enugu State, five engines rebuilt by hand —
-              then the B.Eng at Nsukka.
-            </p>
-            <p>
-              Founded Ogbontor Engineering in 2018 and has run it since. Ran a hardware and
-              embedded-systems bootcamp at UNN in 2025; the company's largest conference lands
-              November 2026.
+              He came to CNG safety from under a vehicle, not a spreadsheet — sixteen months
+              apprenticing at a mechanic's workshop in Enugu State before the B.Eng at Nsukka. He's
+              run Ogbontor Engineering, his own hardware and embedded-systems firm, since 2018.
             </p>
             <p>
               He sets the product thesis, carries the fleet, regulator and underwriter
@@ -76,7 +70,7 @@ export default function Team() {
             </p>
           </div>
 
-          <dl className="mt-7 grid gap-4 border-t border-line pt-6 sm:grid-cols-2 xl:grid-cols-3">
+          <dl className="mt-7 grid gap-4 border-t border-line pt-6 sm:grid-cols-2">
             {FOUNDER.credentials.map(([k, v]) => (
               <div key={k}>
                 <dt className="text-[0.82rem] leading-snug font-semibold text-ink">{k}</dt>

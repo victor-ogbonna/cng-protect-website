@@ -2,6 +2,7 @@ import Navbar from "../sections/Navbar";
 import Hero from "../sections/Hero";
 import Sdg from "../sections/Sdg";
 import Problem from "../sections/Problem";
+import Solution from "../sections/Solution";
 import Hardware from "../sections/Hardware";
 import Web3 from "../sections/Web3";
 import Traction from "../sections/Traction";
@@ -23,6 +24,7 @@ export default function Landing() {
         <Hero />
         <Sdg />
         <Problem />
+        <Solution />
         <Hardware />
         <Web3 />
         <Traction />

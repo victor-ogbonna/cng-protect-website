@@ -6,6 +6,7 @@ import { Button } from "../components/UI";
 const LINKS = [
   { href: "#impact", label: "Impact" },
   { href: "#problem", label: "The Problem" },
+  { href: "#solution", label: "The Solution" },
   { href: "#hardware", label: "Hardware" },
   { href: "#web3", label: "Blockchain Audit" },
   { href: "#traction", label: "Traction" },
